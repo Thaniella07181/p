@@ -14,7 +14,7 @@
 	font:600 16px/18px 'Open Sans',sans-serif;">
 <center>
     <form action="controlador/validacionlogin.php" method="POST">	
-        <h1>INICIO SESION</h1>
+        <h1 >INICIO SESION</h1>
         <p>Usuario <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
         <p>Contraseña <input type="password" name="contrasena" placeholder="ingrese su contraseña"></p>
         <input type="submit" value="Ingresar">

@@ -1,3 +1,9 @@
+  <!-- conexion a base de datos para mostrar tabña usuarios-->
+  <?php
+include '../controlador/conexion.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +43,9 @@
   </ul>
 </nav>
 <br>
-  
+
+
+
 <div class="container">
       
   <table class="table table-dark table-hover">
@@ -46,42 +54,44 @@
         <th>Nombre</th>
         <th>Usuario</th>
         <th>Contraseña</th>
-		<th>Id_cargo</th>
+		    <th>Id_cargo</th>
       </tr>
     </thead>
+
+    <?php
+    $sql="SELECT * FROM usuarios";
+    $result= mysqli_query($conn,$sql);
+
+    while($mostrar=mysqli_fetch_array($result)){
+    ?>
+
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-		<td>1</td>
+        <td><?php echo $mostrar['nombre']?></td>
+        <td><?php echo $mostrar['usuario']?></td>
+        <td><?php echo $mostrar['contrasena']?></td>
+		    <td><?php echo $mostrar['id_cargo']?></td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-		<td>2</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-		<td>3</td>
-      </tr>
-	  
     </tbody>
+    <?php
+    }
+    ?>
+
   </table>
 </div>
 
-<footer style="background-color: chocolate; color: black;    font-size: 12px;
-margin:0;
-width: 1050px;
-height: 130px;
-position: relative;
-left: -85px;
-margin-top: 119px;     
-margin-bottom: 10px;
-background-position: center;">
+<footer style="
+        background-color: chocolate; 
+        color: black;    
+        font-size: 12px;
+        margin:0;
+        width: 1050px;
+        height: 130px;
+        position: relative;
+        left: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        background-position: center;">
 <p style="padding: 15px 0px 15px 60px;">
 Servicio Nacional de Aprendizaje SENA- Centro para la industria de la Comunicación Gráfica Cenigraf - Regional Distrito Capital
 <br>
