@@ -38,7 +38,7 @@ include '../controlador/conexion.php';
       <a class="nav-link" href="../vista/editor.php">Registrar Usuarios</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../vista/Usuarios.php">Editar Usuarios</a>
+      <a class="nav-link" href="../vista/Usuarios.php"> Editar Usuarios</a>
     </li>
   </ul>
 </nav>
@@ -55,9 +55,10 @@ include '../controlador/conexion.php';
         <th>Usuario</th>
         <th>Contraseña</th>
 		    <th>Id_cargo</th>
+        <th>Editar/eliminar</th>
       </tr>
     </thead>
-
+<!-- conexion con base de datos-->
     <?php
     $sql="SELECT * FROM usuarios";
     $result= mysqli_query($conn,$sql);
@@ -71,6 +72,7 @@ include '../controlador/conexion.php';
         <td><?php echo $mostrar['usuario']?></td>
         <td><?php echo $mostrar['contrasena']?></td>
 		    <td><?php echo $mostrar['id_cargo']?></td>
+        <td><a href=""><button type="button" class="btn btn-outline-warning">Editar</button></a><a href=""><button type="button" class="btn btn-outline-danger">Eliminar</button></a></td>
       </tr>
     </tbody>
     <?php
@@ -94,7 +96,7 @@ include '../controlador/conexion.php';
         background-position: center;">
 <p style="padding: 15px 0px 15px 60px;">
 Servicio Nacional de Aprendizaje SENA- Centro para la industria de la Comunicación Gráfica Cenigraf - Regional Distrito Capital
-<br>
+<br>  
 Dirección: Calle 15 # 31 - 42 – Teléfonos: 546 1500 o 596 0100 Ext.: 15 463
 <br>
 Conmutador Nacional (57 1) 5461500 - Ext.: 15 463

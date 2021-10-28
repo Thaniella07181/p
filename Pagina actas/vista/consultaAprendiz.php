@@ -81,7 +81,7 @@
        </li>
 
        <li class="nav-item">
-            <a class="nav-link" href="../vista/editor.php">Editor usuarios</a>
+            <a class="nav-link" href="../vista/editor.php">Usuarios</a>
        </li>
 </ul>
 </nav>
@@ -159,7 +159,7 @@ if (isset($_POST['buscar'])){
            <th>Fechas</th>
            <th>Id_ficha</th>
         </tr>
-
+<!-- conexion con b ase de datos-->
         <tr>
            <td><?php echo $row['nombre'];?></td>
            <td><?php echo $row['cedula'];?></td>

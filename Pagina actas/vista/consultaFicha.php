@@ -81,7 +81,7 @@
        </li>
 
        <li class="nav-item">
-            <a class="nav-link" href="../vista/editor.php">Editor usuarios</a>
+            <a class="nav-link" href="../vista/editor.php">Usuarios</a>
        </li>
 </ul>
 </nav>
