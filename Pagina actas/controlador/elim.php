@@ -1,13 +1,16 @@
 <?php
-require_once "conexion.php";
-if(isset($_GET['id'])){
-    $id_usuario=$_GET['id'];
-    $query="DELETE FROM usuarios WHERE id_usuario='$id_usuario'";
-    if($conn->query($query)){
-        header('Location: modulo_buscador.php');
-        
-    }else{
-        echo "error no se pudo eliminar el registro";
-    }
+include '../controlador/conexion.php';
+
+EliminarProducto($_GET['Id']);
+
+function EliminarProducto($Id)
+{
+    $sentencia="DELETE FROM productos WHERE no='".$Id."' ";
+    mysql_query($sentencia) or die (mysql_error());
 }
 ?>
+
+<script type="text/javascript">
+alert("Producto Eliminado exitosamente");
+window.location.href='index.php';
+</script>

@@ -1,4 +1,4 @@
-  <!-- conexion a base de datos para mostrar tabña usuarios-->
+  <!-- conexion a base de datos para mostrar tabla usuarios-->
   <?php
 include '../controlador/conexion.php';
 
@@ -72,8 +72,12 @@ include '../controlador/conexion.php';
         <td><?php echo $mostrar['usuario']?></td>
         <td><?php echo $mostrar['contrasena']?></td>
 		    <td><?php echo $mostrar['id_cargo']?></td>
-        <td><a href=""><button type="button" class="btn btn-outline-warning">Editar</button></a><a href=""><button type="button" class="btn btn-outline-danger">Eliminar</button></a></td>
-      </tr>
+        <?php
+          echo "<td> <a href='edit.php?Id=".$mostrar['Id']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
+          echo "<td> <a href='elim.php?Id=".$mostrar['Id']."''><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
+        echo "</tr>";
+      ?>
+    </tr>
     </tbody>
     <?php
     }
