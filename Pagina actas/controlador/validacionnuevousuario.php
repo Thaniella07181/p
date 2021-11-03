@@ -3,11 +3,12 @@ include ("conexion.php");
 
         $nombre = $_POST['nombre'];
         $usuario = $_POST['usuario'];
+        $email=$_POST['email'];
         $pass = $_POST['pass'];
         $rol = $_POST['rol'];
 
         if ($_POST['registrar']) {
-        $insertar="INSERT INTO usuarios (Id, nombre, usuario, contrasena, id_cargo) VALUES (NULL, '$nombre', '$usuario', '$pass', '$rol')";
+        $insertar="INSERT INTO usuarios (Id, nombre, usuario, email, contrasena, id_cargo) VALUES (NULL, '$nombre', '$usuario', '$email', '$pass', '$rol')";
              mysqli_query($conn,$insertar);
 
              /*if ($resultado) {

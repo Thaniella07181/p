@@ -57,6 +57,7 @@
                               <option value= "1"> Administrador </option>
                               <option value= "2"> Instructor </option></p>
                      </select></p>
+  <p>Email:<input type="email" name="email" placeholder="email"></p>
   <p>Contraseña:<input type="password" name="pass" placeholder="contraseña"></p>
   <p><input type="submit" value="Registrar" name="registrar"></p>
 </form>

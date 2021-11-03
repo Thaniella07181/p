@@ -81,6 +81,10 @@
        </li>
 
        <li class="nav-item">
+                   <a class="nav-link" href="../vista/ingresaraprendiz.php">Registro aprendiz</a>
+        </li>
+
+       <li class="nav-item">
             <a class="nav-link" href="../vista/editor.php">Usuarios</a>
        </li>
 </ul>

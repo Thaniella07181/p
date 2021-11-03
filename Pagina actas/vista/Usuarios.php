@@ -70,6 +70,7 @@ include '../controlador/conexion.php';
       <tr>
         <td><?php echo $mostrar['nombre']?></td>
         <td><?php echo $mostrar['usuario']?></td>
+        <td><?php echo $mostrar['email']?></td>
         <td><?php echo $mostrar['contrasena']?></td>
 		    <td><?php echo $mostrar['id_cargo']?></td>
         <?php

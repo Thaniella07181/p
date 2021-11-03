@@ -46,7 +46,11 @@
                    <a class="dropdown-item" href="../vista/consultaFicha.php">Consulta Ficha </a>
                    </div>
               </li>
- 
+              
+              <li class="nav-item">
+                   <a class="nav-link" href="../vista/ingresaraprendiz.php">Registro aprendiz</a>
+              </li>
+              
               <li class="nav-item">
                    <a class="nav-link" href="../vista/editor.php">Usuarios</a>
               </li>

@@ -79,6 +79,10 @@
             <a class="dropdown-item" href="../vista/consultaFicha.php">Consulta Ficha </a>
             </div>
        </li>
+       
+       <li class="nav-item">
+                   <a class="nav-link" href="../vista/ingresaraprendiz.php">Registro aprendiz</a>
+              </li>
 
        <li class="nav-item">
             <a class="nav-link" href="../vista/editor.php">Usuarios</a>
@@ -156,7 +160,10 @@ if (isset($_POST['buscar'])){
            <th>Nombre</th>
            <th>Cedula</th>
            <th>Acto_academico</th>
-           <th>Fechas</th>
+           <th>Inicio etapa lectiva</th>
+           <th>Fin etapa lectiva</th>
+           <th>Inicio etapa productiva</th>
+           <th>Fin etapa productiva</th>
            <th>Id_ficha</th>
         </tr>
 <!-- conexion con b ase de datos-->
@@ -164,7 +171,10 @@ if (isset($_POST['buscar'])){
            <td><?php echo $row['nombre'];?></td>
            <td><?php echo $row['cedula'];?></td>
            <td><?php echo $row['acto_academico'];?></td>
-           <td><?php echo $row['fechas'];?></td>
+           <td><?php echo $row['inicio_etapa_lectiva'];?></td>
+           <td><?php echo $row['fin_etapa_lectiva'];?></td>
+           <td><?php echo $row['inicio_etapa_productiva'];?></td>
+           <td><?php echo $row['fin_etapa_productiva'];?></td>
            <td><?php echo $row['id_ficha'];?></td>
         </tr>
 

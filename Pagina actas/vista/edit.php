@@ -73,11 +73,11 @@
   		<input type="text" id="producto" name="producto" value="<?php echo $consulta[1] ?>"><br>
   		
   		<label>Contraseña </label>
-  		<input type="" id="producto" name="producto" value="<?php echo $consulta[2] ?>"><br>
+  		<input type="password" id="producto" name="producto" value="<?php echo $consulta[2] ?>"><br>
   		
   		
       <label>Id cargo:</label>
-  		<input type="text" id="producto" name="producto" value="<?php echo $consulta[3] ?>"><br>
+  		<input type="number" id="producto" name="producto" value="<?php echo $consulta[3] ?>"><br>
 
   		<br>
   		<button type="submit" class="btn btn-success">Guardar</button>
