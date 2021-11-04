@@ -47,8 +47,12 @@
                    </div>
               </li>
               
-              <li class="nav-item">
-                   <a class="nav-link" href="../vista/ingresaraprendiz.php">Registro aprendiz</a>
+              <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registro</a>
+                   <div class="dropdown-menu">
+                   <a class="dropdown-item" href="../vista/ingresaraprendiz.php">Ingresar Aprendiz</a>
+                   <a class="dropdown-item" href="../vista/ingresarficha.php">Ingresar Ficha </a>
+                   </div>
               </li>
               
               <li class="nav-item">

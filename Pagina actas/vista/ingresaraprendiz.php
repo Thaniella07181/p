@@ -10,31 +10,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
+      <!-- contenedor principal-->
+      <div id="princi"> 
 
-<div id="princi"> 
-<!-- imagen baner-->
-<div style = "margin: 0 0 0 0;" class = "jumbotron jumbontron-fluid">
-   <div class="container">
-     <center>
-	<img src="../img/headercenigraf.jpg" alt="cenigraf" >
-     </center>
-     </div>
-   </div>
-            <!-- Barra de navegacion -->
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+       <!-- imagen baner-->
+       <div style = "margin: 0 0 0 0;" class = "jumbotron jumbontron-fluid">
+      
+       <div class="container">
 
-<!-- Nombre del rol -->   <!-- Logo administrador -->
- <img src="../img/avatar.png" alt="Avatar" class="avatar" style= " vertical-align: middle;
-                                                                   width: 50px;
-                                                                   height: 50px;
-                                                                   border-radius: 50%;">  
-  <a class="navbar-brand" href="../vista/admin.php" > ADMINISTRADOR</a>
+         <center>
+	           <img src="../img/headercenigraf.jpg" alt="cenigraf" >
+        </center>
+     
+      </div>
 
-<!-- Opciones de navegacion -->
+      </div>
 
-<ul class="navbar-nav">
+      <!-- Barra de navegacion -->
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+     <!-- Nombre del rol -->   <!-- Logo administrador -->
+     <img src="../img/avatar.png" alt="Avatar" class="avatar" style= " vertical-align: middle;
+                                                                       width: 50px;
+                                                                       height: 50px;
+                                                                       border-radius: 50%;">  
+
+     <a class="navbar-brand" href="../vista/admin.php" > ADMINISTRADOR</a>
+
+     <!-- Opciones de navegacion -->
+     <ul class="navbar-nav">
 
         <li class="nav-item">
             <a class="nav-link" href="#">Actas</a>
@@ -48,9 +55,13 @@
             </div>
        </li>
        
-       <li class="nav-item">
-            <a class="nav-link" href="../vista/ingresaraprendiz.php">Registro aprendiz</a>
-       </li>
+       <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registro</a>
+                   <div class="dropdown-menu">
+                   <a class="dropdown-item" href="../vista/ingresaraprendiz.php">Ingresar Aprendiz</a>
+                   <a class="dropdown-item" href="../vista/ingresarficha.php">Ingresar Ficha </a>
+                   </div>
+              </li>
        
        <li class="nav-item">
             <a class="nav-link" href="../vista/editor.php">Usuarios</a>
@@ -59,33 +70,47 @@
 </nav>
 
 <br>
-  
-<div id="principal2"> 
+
+  <!-- Contenedor principal 2-->
+  <div id="principal2"> 
 
   <div id="uju2">
 
   <div class="login-wrap">
+
 	<div class="login-html">
 		
-<label for="tab-2" class="tab">Registrar</label>
-<form  action="../controlador/validacionnuevousuario.php" method="POST">
+  <label for="tab-2" class="tab"><h2>Registrar Aprendiz:</h2></label>
+  <form  action="../controlador/nuevoaprendiz.php" method="POST">
   <p>Nombre:<input type="text" name="nombre" placeholder="Nombre completo"></p>
-  <p>Cedula:<input type="text" name="usuario" placeholder="Nombre de usuario"></p>
-  <p>Acto academico: <select name= "rol">
+  <p>Documento de identidad:<input type="text" name="cedula" placeholder="Numero de documento"></p>
+  <p>Acto academico: <select name= "acto_academico">
                               <option value= "0"> </option>
-                              <option value= "1"> Desercion </option>
-                              <option value= "2"> Condicionamiento </option></p>
-                              <option value= "3"> Cancelacion </option></p>
+                              <option value= "Desercion"> Desercion </option>
+                              <option value= "Condicionamiento"> Condicionamiento </option></p>
+                              <option value= "Cancelacion"> Cancelacion </option></p>
                      </select></p>
-  <p>Inicio etapa lectiva:<input type="date" name="pass" placeholder="fecha"></p>
-  <p>Fin etapa lectiva:<input type="date" name="pass" placeholder="fecha"></p>
-  <p>Inicio etapa productiva:<input type="date" name="pass" placeholder="fecha"></p>
-  <p>Fin etapa productiva:<input type="date" name="pass" placeholder="fecha"></p>
+  <p>Inicio etapa lectiva:<input type="date" name="inicio_etapa_lectiva" placeholder="fecha"></p>
+  <p>Fin etapa lectiva:<input type="date" name="fin_etapa_lectiva" placeholder="fecha"></p>
+  <p>Inicio etapa productiva:<input type="date" name="inicio_etapa_productiva" placeholder="fecha"></p>
+  <p>Fin etapa productiva:<input type="date" name="fin_etapa_productiva" placeholder="fecha"></p>
+
+  <?php
+  include '../controlador/conexion.php';
+  $ficha="SELECT * from fichas";
+  $fi=mysqli_query($conn,$ficha);
+   ?>
   <p>Ficha: <select name= "ficha">
-                              <option value= "0"> </option>
-                              <option value= "1">fichas base de datos :V </option>
+                            <?php while($row=mysqli_fetch_array($fi))
+                            {?> 
+
+                             <option value="<?php echo $row['Id_ficha'];?>"><?php echo $row['Id_ficha'];?></option>
+                            <?php
+                            }
+                            ?>
 
                      </select></p>
+                     
   <p><input type="submit" value="Registrar" name="registrar"></p>
 </form>
 		</div>
@@ -93,11 +118,14 @@
 
 </div>
 
+<!--footer-->
 <footer class= "main-footer">
-  <div class="float-none d-none d-sm-block">
-    <div style="background-color: chocolate; 
-                position: relative;
-                background-position: center; ">
+
+<!-- Contenedor class="float-none d-none d-sm-block"-->
+  <div class="float-none d-none d-sm-block" style="background-color: chocolate; 
+                                                   position: relative;
+                                                   background-position: center; ">
+
     <center>
       <p>
       Servicio Nacional de Aprendizaje SENA- Centro para la industria de la Comunicación Gráfica Cenigraf - Regional Distrito Capital
@@ -113,10 +141,13 @@
       Atención al empresario: Bogotá (57 1) 3430101 - Línea gratuita y resto del país 018000 910682
       </p>
     </center>
+    <!-- Cierre div class="float-none d-none d-sm-block" -->
     </div>
-</div> 
+<!-- Cierre footer-->
 </footer>
+<!-- cierre contenedor principal 2-->
 </div>
+<!-- cierre contenedor principal 1-->
 </div>
 
 

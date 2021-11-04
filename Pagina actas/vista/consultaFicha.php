@@ -80,13 +80,22 @@
             </div>
        </li>
 
-       <li class="nav-item">
-                   <a class="nav-link" href="../vista/ingresaraprendiz.php">Registro aprendiz</a>
-        </li>
+       <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registro</a>
+                   <div class="dropdown-menu">
+                   <a class="dropdown-item" href="../vista/ingresaraprendiz.php">Ingresar Aprendiz</a>
+                   <a class="dropdown-item" href="../vista/ingresarficha.php">Ingresar Ficha </a>
+                   </div>
+              </li>
 
        <li class="nav-item">
             <a class="nav-link" href="../vista/editor.php">Usuarios</a>
        </li>
+
+          <form method="POST">
+       <input class="form-control mr-sm-2" type="text"  name="buscar" placeholder="Numero de ficha">
+    <button class="btn btn-outline-warning" type="submit" value="buscar">Buscar</button>
+</form>
 </ul>
 </nav>
 
@@ -114,23 +123,7 @@
                             display: inline-block;
                             font-size: 16px;
 	                          margin-top: 40px;">
-            <form  method="post">
-              <input type="text" name="buscar">
-              <input type="submit" value="buscar">
-            </form>
-
-            <!-- cierre contenedor formulario consulta-->
-           </div>
-
-            <!-- cierre  contenedor de imagen-->
-          </div> 
-
-           <!-- cierre contenedor titulo-->
-         </div>
-     <center>
-
-<br><br><br>
-
+            
 <!-- conexion a base de datos para consulta-->
 <?php
 include '../controlador/conexion.php';
@@ -141,7 +134,7 @@ if (isset($_POST['buscar'])){
          
    $busqueda=$_POST['buscar'];
 
-    $consul= $conn->query("SELECT * FROM fichas where instructor like '%$busqueda%'");
+    $consul= $conn->query("SELECT * FROM fichas where Id_ficha like '%$busqueda%'");
    
     if ($consul->num_rows > 0) {
        while  ($row =$consul->fetch_array()){?>
@@ -186,6 +179,19 @@ if (isset($_POST['buscar'])){
     }   
   }
 ?>
+
+
+            <!-- cierre contenedor formulario consulta-->
+           </div>
+
+            <!-- cierre  contenedor de imagen-->
+          </div> 
+
+           <!-- cierre contenedor titulo-->
+         </div>
+     <center>
+
+<br><br><br>
 
 <!--if(isset($_POST['enviar'])){
     $busqueda = $_POST['enviar'];
