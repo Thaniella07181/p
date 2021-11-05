@@ -1,14 +1,14 @@
   <!-- conexion a base de datos para mostrar tabla usuarios-->
   <?php
-/*include '../controlador/conexion.php';
+include '../controlador/conexion.php';
 
-  $consulta=ConsultarProducto($_GET['Id']);
+  $consulta=ConsultarUsuarios($_GET['Id']);
 
-  function ConsultarProducto($no_prod)
+  function ConsultarUsuarios($Id_usu)
   {
-    $sentencia="SELECT * FROM productos WHERE Id='".$no_prod."' ";
-    $resultado=mysql_query($sentencia) or die (mysql_error());
-    $filas=mysql_fetch_assoc($resultado);
+    $sentencia="SELECT * FROM uduarios WHERE Id='".$Id_usu."' ";
+    $resultado=mysqli_query($sentencia) or die (mysqli_error());
+    $filas=mysqli_fetch_assoc($resultado);
     return [
       $filas['id_producto'],
       $filas['nombre'],
@@ -17,7 +17,7 @@
 
   }
 
-*/
+
 ?>
 <!DOCTYPE html>
 <html>

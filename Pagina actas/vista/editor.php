@@ -9,14 +9,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body  style=" margin: 0;
+              color: #0a0b0f;
+              background: rgba(255, 230, 192, 0.966);
+              font: 600 16px/18px 'Open Sans', sans-serif" >
 
 <div id="princi"> 
 <!-- imagen baner-->
 <div style = "margin: 0 0 0 0;" class = "jumbotron jumbontron-fluid">
    <div class="container">
      <center>
-	<img src="../img/headercenigraf.jpg" alt="cenigraf" >
+	    <img src="../img/headercenigraf.jpg" alt="cenigraf" >
      </center>
      </div>
    </div>
@@ -41,13 +44,14 @@
 </nav>
 <br>
   
-<div id="principal2"> 
+<div style="margin: -27px 317px -266px 312px;" class= "jumbotron jumbotron-fluid">
 
   <div id="uju2">
 
   <div class="login-wrap">
 	<div class="login-html">
-		
+
+  <center>
 <label for="tab-2" class="tab">Registrar</label>
 <form  action="../controlador/validacionnuevousuario.php" method="POST">
   <p>Nombre:<input type="text" name="nombre" placeholder="Nombre completo"></p>
@@ -61,18 +65,26 @@
   <p>Contraseña:<input type="password" name="pass" placeholder="contraseña"></p>
   <p><input type="submit" value="Registrar" name="registrar"></p>
 </form>
+</center>
 		</div>
 	</div>
 
 </div>
 
-<footer class= "main-footer">
-  <div class="float-none d-none d-sm-block">
-    <div style="background-color: chocolate; 
-                position: relative;
-                background-position: center; ">
+<footer style="
+        background-color: chocolate; 
+        color: black;    
+        font-size: 12px;
+        margin:0;
+        width: 1050px;
+        height: 140px;
+        position: relative;
+        left: -55px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        background-position: center;">
     <center>
-      <p>
+      <p style="padding: 15px 0px 15px 60px;">
       Servicio Nacional de Aprendizaje SENA- Centro para la industria de la Comunicación Gráfica Cenigraf - Regional Distrito Capital
       <br>
       Dirección: Calle 15 # 31 - 42 – Teléfonos: 546 1500 o 596 0100 Ext.: 15 463

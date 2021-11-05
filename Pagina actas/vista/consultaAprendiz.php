@@ -32,27 +32,17 @@
 
      <center>
  <!-- contenedor principal-->
-   <div id="prin" style="		
-                  margin:0;
-		              color:#0a0b0f;
-		              background-color:rgb(255, 255, 255);
-		              width: 1050px;
-		              height: 600px;
-		              position: relative;
-		              left: 10px;
-		              margin-top: 10px;
-		              margin-bottom: 50px;
-		              background-position: center;">
+   <div id="prin">
 
       <!-- contenedor de imagen-->
-       <div id="img" style="
-                     width: 955px;
-	                   height: 200px;
-	                   background: rgb(255, 255, 255);
-	                   position: relative;
-	                   left: 10px;
-                     padding-left: 50px;">
-	   		<img src="../img/headercenigraf.jpg" alt="cenigraf" >
+      <div style="margin: 0 0 0 0;" class="jumbotron jumbotron-fluid">  
+           <div class="container">  
+            <center>
+             <img src="../img/headercenigraf.jpg" alt="cenigraf" >
+            </center>
+           </div>
+         </div>
+
  <!-- Barra de navegacion -->
 
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -142,13 +132,12 @@ if (isset($_POST['buscar'])){
       
 
 <!-- contenedor de tabla de la consulta-->
- <div class="inter prod" id="tab" style="	
-                                  background-color:chocolate ;
-	                                position: relative;
-	                                margin-top: 340px;">
+ <div class="inter prod" id="tab">
 
     <html>
-      <table>
+      <table style="background-color:chocolate;
+                    margin: 0 278 0 272;
+                    margin-top: -22px;">
 
         <tr>
            <th>Nombre</th>
@@ -231,9 +220,9 @@ if (isset($_POST['buscar'])){
         font-size: 12px;
         margin:0;
         width: 1050px;
-        height: 130px;
+        height: 140px;
         position: relative;
-        left: 10px;
+        left: -3px;
         margin-top: 5px;
         margin-bottom: 10px;
         background-position: center;">

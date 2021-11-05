@@ -16,12 +16,22 @@ include '../controlador/conexion.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body style=" margin: 0;
+              color: #0a0b0f;
+              background: rgba(255, 230, 192, 0.966);
+              font: 600 16px/18px 'Open Sans', sans-serif" >
 
 <div id="princi"> 
 
 <div id="i">
-	<img src="../img/headercenigraf.jpg" alt="cenigraf" >
+         <div style="margin: 0 0 0 0;" class="jumbotron jumbotron-fluid">  
+           <div class="container">  
+            <center>
+              <img src="../img/headercenigraf.jpg" alt="cenigraf" >
+            </center>
+           </div>
+         </div>
+
 
  <div id="nave">
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -46,8 +56,9 @@ include '../controlador/conexion.php';
 
 
 
-<div class="container">
-      
+<div class="container">  
+<center>
+     <div style="margin: -53px 306px 29px 314px;" class= "jumbotron jumbotron-fluid">     
   <table class="table table-dark table-hover">
     <thead>
       <tr>
@@ -85,6 +96,7 @@ include '../controlador/conexion.php';
     ?>
 
   </table>
+  </center> 
 </div>
 
 <footer style="
@@ -92,14 +104,14 @@ include '../controlador/conexion.php';
         color: black;    
         font-size: 12px;
         margin:0;
-        width: 1050px;
-        height: 130px;
+        width: 978px;
+        height: 172px;
         position: relative;
-        left: 10px;
-        margin-top: 5px;
-        margin-bottom: 10px;
+        left: 304px;
+        margin-top: 27px;
+        margin-bottom: 25px;
         background-position: center;">
-<p style="padding: 15px 0px 15px 60px;">
+<p style="padding: 5px 0px 18px 68px;"> <center> 
 Servicio Nacional de Aprendizaje SENA- Centro para la industria de la Comunicación Gráfica Cenigraf - Regional Distrito Capital
 <br>  
 Dirección: Calle 15 # 31 - 42 – Teléfonos: 546 1500 o 596 0100 Ext.: 15 463
@@ -111,7 +123,7 @@ Atención telefónica: lunes a viernes 7:00 a.m. a 7:00 p.m. - sábados 8:00 a.m
 Atención al ciudadano: Bogotá (57 1) 3430111 - Línea gratuita y resto del país 018000 910270
 <br>
 Atención al empresario: Bogotá (57 1) 3430101 - Línea gratuita y resto del país 018000 910682
- </p>
+</center> </p>
 </footer>
    
 </body>

@@ -10,7 +10,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body style=" margin: 0;
+              color: #0a0b0f;
+              background: rgba(255, 230, 192, 0.966);
+              font: 600 16px/18px 'Open Sans', sans-serif" >
       <!-- Contenedor de todo -->
        <div id="principal"> 
 
@@ -18,7 +21,14 @@
 		   <div id="cen">
 
          <!-- Imagen -->
-	   		<img src="../img/headercenigraf.jpg" alt="cenigraf" >
+         <div style="margin: 0 0 0 0;" class="jumbotron jumbotron-fluid">  
+           <div class="container">  
+            <center>
+	   		     <img src="../img/headercenigraf.jpg" alt="cenigraf" >
+            </center>
+           </div>
+         </div>
+
           
          <!-- Barra de navegacion -->
 
@@ -63,6 +73,8 @@
 
 <!-- fomulario-->
 <form>
+  <center>
+  <div slyle="margin: 0px 0px 0px 0px;" class="jumbotron jumbotron-fluid">
 
   <!-- Contenedor 1 del cabecero del formato de acta-->
 <div id="cont1">
@@ -214,19 +226,22 @@
 </center>
 
  <!--Cierre formulario-->
+ </div>
+ </center>
 </form>
 
 
  <!--Footer-->
+ <center>
 <footer style="
         background-color: chocolate; 
         color: black;    
         font-size: 12px;
         margin:0;
         width: 1050px;
-        height: 130px;
+        height: 140px;
         position: relative;
-        left: 10px;
+        left: -3px;
         margin-top: 5px;
         margin-bottom: 10px;
         background-position: center;">
@@ -247,7 +262,7 @@ Atención al empresario: Bogotá (57 1) 3430101 - Línea gratuita y resto del pa
 </p>
 
 </footer>
-
+</center>
  <!-- Cierre contenedor de todo-->
 </div>
 </body>
