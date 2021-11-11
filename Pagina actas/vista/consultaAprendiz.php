@@ -125,7 +125,7 @@ if (isset($_POST['buscar'])){
          
    $busqueda=$_POST['buscar'];
 
-    $consul= $conn->query("SELECT * FROM aprendices where nombre like '%$busqueda%'");
+    $consul= $conn->query("SELECT * FROM aprendiz  like '%$busqueda%'");
    
     if ($consul->num_rows > 0) {
        while  ($row =$consul->fetch_array()){?>
@@ -140,26 +140,41 @@ if (isset($_POST['buscar'])){
                     margin-top: -22px;">
 
         <tr>
-           <th>Nombre</th>
-           <th>Cedula</th>
-           <th>Acto_academico</th>
-           <th>Inicio etapa lectiva</th>
-           <th>Fin etapa lectiva</th>
-           <th>Inicio etapa productiva</th>
-           <th>Fin etapa productiva</th>
-           <th>Id_ficha</th>
+        <th nowrap>Nombres</th>
+        <th nowrap>Apellidos</th>
+        <th nowrap>Tipo de documento de identidad</th>
+        <th nowrap>Documento de identidad</th>
+        <th nowrap>Email aprendiz</th>
+        <th nowrap>Tel/cel aprendiz</th>
+        <th nowrap>Inicio Etapa Productiva</th>
+        <th nowrap>Inicio Etapa Productiva</th>                      
+        <th nowrap>Esatdo APCA</th>
+        <th nowrap>Tipo alternativa</th>
+        <th nowrap>Estado Aprendiz</th>
+        <th nowrap>Ficha</th>
+        <th nowrap>Ficha Programa</th>
+        <th nowrap>Nivel Formacion</th>
+        <th nowrap>instructor</th>
         </tr>
 <!-- conexion con base de datos-->
         <tr>
-           <td><?php echo $row['nombre'];?></td>
-           <td><?php echo $row['cedula'];?></td>
-           <td><?php echo $row['acto_academico'];?></td>
-           <td><?php echo $row['inicio_etapa_lectiva'];?></td>
-           <td><?php echo $row['fin_etapa_lectiva'];?></td>
-           <td><?php echo $row['inicio_etapa_productiva'];?></td>
-           <td><?php echo $row['fin_etapa_productiva'];?></td>
-           <td><?php echo $row['id_ficha'];?></td>
-        </tr>
+           <td><?php echo $row['NombreAprendiz'];?></td>
+           <td><?php echo $row['ApellidoAprendiz'];?></td>
+           <td><?php echo $row['Tipo_documento_identificacion'];?></td>
+           <td><?php echo $row['Documento_identificacion'];?></td>
+           <td><?php echo $row['EmailAprendiz'];?></td>
+           <td><?php echo $row['TelAprendiz'];?></td>
+           <td><?php echo $row['FIProductiva'];?></td>
+           <td><?php echo $row['FFEProductiva'];?></td>
+           <td><?php echo $row['EstadoAPCA'];?></td>
+           <td><?php echo $row['TipoAlternativa'];?></td>
+           <td><?php echo $row['NombreEmpresa'];?></td>
+           <td><?php echo $row['EsradoA_idEstadoA'];?></td>
+           <td><?php echo $row['FICHA_idFICHA'];?></td>
+           <td><?php echo $row['FICHA_Programa_idPrograma'];?></td>
+           <td><?php echo $row['FICHA_Programa_NivelFormacion_idNivelFormacion'];?></td>
+           <td><?php echo $row['Instructor_idInstructor'];?></td>
+          </tr>
 
       </table>
              

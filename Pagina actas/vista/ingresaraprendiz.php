@@ -82,11 +82,11 @@
 		
   <label for="tab-2" class="tab"><h2>Registrar Aprendiz:</h2></label>
   <form  action="../controlador/nuevoaprendiz.php" method="POST">
-  <p>Nombre:<input type="text" name="nombre" placeholder="Nombre completo"></p>
-  <p>Documento de identidad:<input type="text" name="cedula" placeholder="Numero de documento"></p>
-  <p>Acto academico: <select name= "acto_academico">
+  <p>Nombres:<input type="text" name="nombre" placeholder="Nombre completo"></p>
+  <p>Apellidos:<input type="text" name="cedula" placeholder="Numero de documento"></p>
+  <p>Tipo de documento: <select name= "acto_academico">
                               <option value= "0"> </option>
-                              <option value= "Desercion"> Desercion </option>
+                              <option value= "Tarjeta"> Desercion </option>
                               <option value= "Condicionamiento"> Condicionamiento </option></p>
                               <option value= "Cancelacion"> Cancelacion </option></p>
                      </select></p>
