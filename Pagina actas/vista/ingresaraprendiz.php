@@ -82,24 +82,87 @@
 		
   <label for="tab-2" class="tab"><h2>Registrar Aprendiz:</h2></label>
   <form  action="../controlador/nuevoaprendiz.php" method="POST">
-  <p>Nombres:<input type="text" name="nombre" placeholder="Nombre completo"></p>
-  <p>Apellidos:<input type="text" name="cedula" placeholder="Numero de documento"></p>
+  <p>Nombres:<input type="text" name="nombre" placeholder="Nombres completos"></p>
+  <p>Apellidos:<input type="text" name="cedula" placeholder="Apellidos completos"></p>
   <p>Tipo de documento: <select name= "acto_academico">
                               <option value= "0"> </option>
-                              <option value= "Tarjeta"> Desercion </option>
-                              <option value= "Condicionamiento"> Condicionamiento </option></p>
-                              <option value= "Cancelacion"> Cancelacion </option></p>
+                              <option value= "Tarjeta de identidad"> Tarjeta de identidad</option>
+                              <option value= "Cedula"> Cedula </option></p>
                      </select></p>
-  <p>Inicio etapa lectiva:<input type="date" name="inicio_etapa_lectiva" placeholder="fecha"></p>
-  <p>Fin etapa lectiva:<input type="date" name="fin_etapa_lectiva" placeholder="fecha"></p>
-  <p>Inicio etapa productiva:<input type="date" name="inicio_etapa_productiva" placeholder="fecha"></p>
-  <p>Fin etapa productiva:<input type="date" name="fin_etapa_productiva" placeholder="fecha"></p>
+  <p>Numero de documento:<input type="int" name="inicio_etapa_lectiva" placeholder="Numero de documento"></p>
+  <p>Email:<input type="email" name="fin_etapa_lectiva" placeholder="ejemplo@gmail.com"></p>
+  <p>Numero de tel/cel:<input type="int" name="inicio_etapa_productiva" placeholder="Numero de celular"></p>
+  <p>Fecha inicio E.Productiva:<input type="date" name="fin_etapa_productiva"></p>
+  <p>Fecha fin E.Productiva:<input type="date" name="fin_etapa_productiva"></p>
+  <p>Estado APCA:<input type="text" name="fin_etapa_productiva"></p>
+  <p>Tipo de alternativa:<input type="text" name="fin_etapa_productiva"></p>
+  <p>Nombre Enmpresa:<input type="text" name="fin_etapa_productiva"></p>
 
   <?php
   include '../controlador/conexion.php';
-  $ficha="SELECT * from fichas";
+  $ficha="SELECT * from ficha";
   $fi=mysqli_query($conn,$ficha);
    ?>
+
+  <p>Estado <select name= "Estado">
+                            <?php while($row=mysqli_fetch_array($fi))
+                            {?> 
+
+                             <option value="<?php echo $row['EstadoA'];?>"><?php echo $row['EstadoA'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p>
+
+
+
+  <p>Ficha idFicha:<select name= "Estado">
+                            <?php while($row=mysqli_fetch_array($fi))
+                            {?> 
+
+                             <option value="<?php echo $row['EstadoA'];?>"><?php echo $row['EstadoA'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p>
+
+  <p>Programa:<select name= "Programa">
+                            <?php while($row=mysqli_fetch_array($fi))
+                            {?> 
+
+                             <option value="<?php echo $row['NombrePrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p>
+
+
+  <p>Nivel programa:<select name= "Estado">
+                            <?php while($row=mysqli_fetch_array($fi))
+                            {?> 
+
+                             <option value="<?php echo $row['NombreNivel'];?>"><?php echo $row['NombreNivel'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p>
+
+  <p>Instructor:<select name= "Estado">
+                            <?php while($row=mysqli_fetch_array($fi))
+                            {?> 
+
+                             <option value="<?php echo $row['NombreInstructor'];?>"><?php echo $row['NombreInstructor'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p>
+
+  
   <p>Ficha: <select name= "ficha">
                             <?php while($row=mysqli_fetch_array($fi))
                             {?> 

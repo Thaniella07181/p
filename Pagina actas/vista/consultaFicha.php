@@ -125,7 +125,7 @@ if (isset($_POST['buscar'])){
          
    $busqueda=$_POST['buscar'];
 
-    $consul= $conn->query("SELECT * FROM fichas where Id_ficha like '%$busqueda%'");
+    $consul= $conn->query("SELECT * FROM ficha like '%$busqueda%'");
    
     if ($consul->num_rows > 0) {
        while  ($row =$consul->fetch_array()){?>
@@ -140,15 +140,21 @@ if (isset($_POST['buscar'])){
                     margin-top: -22px;">
 
         <tr>
-           <th>Id_ficha</th>
-           <th>Instructor</th>
-           <th>Archivo</th>
+           <th>idFicha</th>
+           <th>FILectiva</th>
+           <th>FFLectiva</th>
+           <th>FTFicha</th>
+           <th>Programa</th>
+           <th>Nivel de formacion</th>
         </tr>
 
         <tr>
-           <td><?php echo $row['Id_ficha'];?></td>
-           <td><?php echo $row['instructor'];?></td>
-           <td><?php echo $row['archivo'];?></td>
+           <td><?php echo $row['idFICHA'];?></td>
+           <td><?php echo $row['FILectiva'];?></td>
+           <td><?php echo $row['FFLectiva'];?></td>
+           <td><?php echo $row['FTFicha'];?></td>
+           <td><?php echo $row['Programa_idPrograma'];?></td>
+           <td><?php echo $row['Programa_Nivel Formacion_idNivel Formacion'];?></td>
         </tr>
 
       </table>
