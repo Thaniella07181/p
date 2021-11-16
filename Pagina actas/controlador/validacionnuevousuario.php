@@ -16,5 +16,6 @@ include ("conexion.php");
              }  else{
     echo "error al ingresar datos";
    }*/
+   header('location:../vista/editor.php');
         }
 ?>

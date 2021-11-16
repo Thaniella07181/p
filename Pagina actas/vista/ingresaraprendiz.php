@@ -96,19 +96,42 @@
   <p>Fecha fin E.Productiva:<input type="date" name="fin_etapa_productiva"></p>
   <p>Estado APCA:<input type="text" name="fin_etapa_productiva"></p>
   <p>Tipo de alternativa:<input type="text" name="fin_etapa_productiva"></p>
-  <p>Nombre Enmpresa:<input type="text" name="fin_etapa_productiva"></p>
+  <p>Nombre Empresa:<input type="text" name="fin_etapa_productiva"></p>
 
-  <?php
+
+
+<?php
+  include '../controlador/conexion.php';
+  $estadoa="SELECT * from estadoa";
+  $es=mysqli_query($conn,$estadoa);
+?>
+
+  <p>Estado <select name= "estado">
+                            <?php while($row=mysqli_fetch_array($es))
+                            {?> 
+
+                             <option value="<?php echo $row['EstadoA'];?>"><?php echo $row['EstadoA'];?></option>
+                            <?php
+                            }
+                            ?>
+
+            </select>
+  </p>
+
+
+
+
+<?php
   include '../controlador/conexion.php';
   $ficha="SELECT * from ficha";
   $fi=mysqli_query($conn,$ficha);
-   ?>
+?>
 
-  <p>Estado <select name= "Estado">
+  <p>Ficha:<select name= "ficha">
                             <?php while($row=mysqli_fetch_array($fi))
                             {?> 
 
-                             <option value="<?php echo $row['EstadoA'];?>"><?php echo $row['EstadoA'];?></option>
+                             <option value="<?php echo $row['idFICHA'];?>"><?php echo $row['idFICHA'];?></option>
                             <?php
                             }
                             ?>
@@ -117,19 +140,14 @@
 
 
 
-  <p>Ficha idFicha:<select name= "Estado">
-                            <?php while($row=mysqli_fetch_array($fi))
-                            {?> 
+<?php
+  include '../controlador/conexion.php';
+  $programa="SELECT * from programa";
+  $pro=mysqli_query($conn,$programa);
+?>
 
-                             <option value="<?php echo $row['EstadoA'];?>"><?php echo $row['EstadoA'];?></option>
-                            <?php
-                            }
-                            ?>
-
-                     </select></p>
-
-  <p>Programa:<select name= "Programa">
-                            <?php while($row=mysqli_fetch_array($fi))
+  <p>Programa:<select name= "programa">
+                            <?php while($row=mysqli_fetch_array($pro))
                             {?> 
 
                              <option value="<?php echo $row['NombrePrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
@@ -137,11 +155,20 @@
                             }
                             ?>
 
-                     </select></p>
+              </select>
+  </p>
 
 
-  <p>Nivel programa:<select name= "Estado">
-                            <?php while($row=mysqli_fetch_array($fi))
+
+
+<?php
+  include '../controlador/conexion.php';
+  $nivel="SELECT * from `nivel formacion`";
+  $ni=mysqli_query($conn,$nivel);
+?>
+
+  <p>Nivel programa:<select name= "nivel">
+                            <?php while($row=mysqli_fetch_array($ni))
                             {?> 
 
                              <option value="<?php echo $row['NombreNivel'];?>"><?php echo $row['NombreNivel'];?></option>
@@ -149,10 +176,19 @@
                             }
                             ?>
 
-                     </select></p>
+                    </select>
+  </p>
+
+
+
+<?php
+  include '../controlador/conexion.php';
+  $instructor="SELECT * from instructor";
+  $ins=mysqli_query($conn,$instructor);
+?>
 
   <p>Instructor:<select name= "Estado">
-                            <?php while($row=mysqli_fetch_array($fi))
+                            <?php while($row=mysqli_fetch_array($ins))
                             {?> 
 
                              <option value="<?php echo $row['NombreInstructor'];?>"><?php echo $row['NombreInstructor'];?></option>
@@ -163,6 +199,8 @@
                      </select></p>
 
   
+
+
   <p>Ficha: <select name= "ficha">
                             <?php while($row=mysqli_fetch_array($fi))
                             {?> 
