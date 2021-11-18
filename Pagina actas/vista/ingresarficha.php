@@ -73,8 +73,49 @@
 		
 <label for="tab-2" class="tab"><h2>Registrar ficha:</h2></label>
 <form  action="../controlador/nuevaficha.php" method="POST">
-  <p>Numero de ficha<input type="text" name="ficha" placeholder="2061628"></p>
-  <p>Instructor:<input type="text" name="instructor" placeholder="Nombre del instructor de ficha"></p>
+
+  <p>Numero de ficha:<input type="int" name="ficha" placeholder="2061628"></p>
+  <p>Fecha inicio lectiva:<input type="date" name="iniciolectiva" ></p>
+  <p>Fecha fin lectiva:<input type="date" name="finlectiva" ></p>
+  <p>Fecha terminacion ficha:<input type="date" name="fechatermino" ></p>
+
+
+  <?php
+  include '../controlador/conexion.php';
+  $progra="SELECT * from programa";
+  $pr=mysqli_query($conn,$progra);
+?>
+
+  <p>Ficha:<select name= "programa">
+                            <?php while($row=mysqli_fetch_array($pr))
+                            {?> 
+
+                             <option value="<?php echo $row['NombrePrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p>
+
+
+  
+<?php
+  include '../controlador/conexion.php';
+  $forma="SELECT * from `nivel formacion`";
+  $fo=mysqli_query($conn,$forma);
+?>
+
+<p>Ficha:<select name= "programa">
+                            <?php while($row=mysqli_fetch_array($fo))
+                            {?> 
+
+                             <option value="<?php echo $row['NombreNivel'];?>"><?php echo $row['NombreNivel'];?></option>
+                            <?php
+                            }
+                            ?>
+
+         </select></p>
+
                      
   <p><input type="submit" value="Registrar" name="registrar"></p>
 </form>

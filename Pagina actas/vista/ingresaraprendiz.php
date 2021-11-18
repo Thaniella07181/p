@@ -83,20 +83,20 @@
   <label for="tab-2" class="tab"><h2>Registrar Aprendiz:</h2></label>
   <form  action="../controlador/nuevoaprendiz.php" method="POST">
   <p>Nombres:<input type="text" name="nombre" placeholder="Nombres completos"></p>
-  <p>Apellidos:<input type="text" name="cedula" placeholder="Apellidos completos"></p>
-  <p>Tipo de documento: <select name= "acto_academico">
+  <p>Apellidos:<input type="text" name="apellidos" placeholder="Apellidos completos"></p>
+  <p>Tipo de documento: <select name= "tipo_documento">
                               <option value= "0"> </option>
                               <option value= "Tarjeta de identidad"> Tarjeta de identidad</option>
                               <option value= "Cedula"> Cedula </option></p>
                      </select></p>
-  <p>Numero de documento:<input type="int" name="inicio_etapa_lectiva" placeholder="Numero de documento"></p>
-  <p>Email:<input type="email" name="fin_etapa_lectiva" placeholder="ejemplo@gmail.com"></p>
-  <p>Numero de tel/cel:<input type="int" name="inicio_etapa_productiva" placeholder="Numero de celular"></p>
-  <p>Fecha inicio E.Productiva:<input type="date" name="fin_etapa_productiva"></p>
-  <p>Fecha fin E.Productiva:<input type="date" name="fin_etapa_productiva"></p>
-  <p>Estado APCA:<input type="text" name="fin_etapa_productiva"></p>
-  <p>Tipo de alternativa:<input type="text" name="fin_etapa_productiva"></p>
-  <p>Nombre Empresa:<input type="text" name="fin_etapa_productiva"></p>
+  <p>Numero de documento:<input type="int" name="documento" placeholder="Numero de documento"></p>
+  <p>Email:<input type="email" name="email" placeholder="ejemplo@gmail.com"></p>
+  <p>Numero de tel/cel:<input type="int" name="telefono" placeholder="Numero de celular"></p>
+  <p>Fecha inicio E.Productiva:<input type="date" name="inicio"></p>
+  <p>Fecha fin E.Productiva:<input type="date" name="fin"></p>
+  <p>Estado APCA:<input type="text" name="estado"></p>
+  <p>Tipo de alternativa:<input type="text" name="tipo"></p>
+  <p>Nombre Empresa:<input type="text" name="empresa"></p>
 
 
 
@@ -106,11 +106,11 @@
   $es=mysqli_query($conn,$estadoa);
 ?>
 
-  <p>Estado <select name= "estado">
+  <p>Estado <select name= "estadoA">
                             <?php while($row=mysqli_fetch_array($es))
                             {?> 
 
-                             <option value="<?php echo $row['EstadoA'];?>"><?php echo $row['EstadoA'];?></option>
+                             <option value="<?php echo $row['idEstadoA'];?>"><?php echo $row['EstadoA'];?></option>
                             <?php
                             }
                             ?>
@@ -150,7 +150,7 @@
                             <?php while($row=mysqli_fetch_array($pro))
                             {?> 
 
-                             <option value="<?php echo $row['NombrePrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
+                             <option value="<?php echo $row['idPrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
                             <?php
                             }
                             ?>
@@ -171,7 +171,7 @@
                             <?php while($row=mysqli_fetch_array($ni))
                             {?> 
 
-                             <option value="<?php echo $row['NombreNivel'];?>"><?php echo $row['NombreNivel'];?></option>
+                             <option value="<?php echo $row['idNivel Formacion'];?>"><?php echo $row['NombreNivel'];?></option>
                             <?php
                             }
                             ?>
@@ -187,11 +187,11 @@
   $ins=mysqli_query($conn,$instructor);
 ?>
 
-  <p>Instructor:<select name= "Estado">
+  <p>Instructor:<select name= "instructo">
                             <?php while($row=mysqli_fetch_array($ins))
                             {?> 
 
-                             <option value="<?php echo $row['NombreInstructor'];?>"><?php echo $row['NombreInstructor'];?></option>
+                             <option value="<?php echo $row['idInstructor'];?>"><?php echo $row['NombreInstructor'];?></option>
                             <?php
                             }
                             ?>
@@ -200,18 +200,7 @@
 
   
 
-
-  <p>Ficha: <select name= "ficha">
-                            <?php while($row=mysqli_fetch_array($fi))
-                            {?> 
-
-                             <option value="<?php echo $row['Id_ficha'];?>"><?php echo $row['Id_ficha'];?></option>
-                            <?php
-                            }
-                            ?>
-
-                     </select></p>
-                     
+  
   <p><input type="submit" value="Registrar" name="registrar"></p>
 </form>
 		</div>
