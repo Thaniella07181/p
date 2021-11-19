@@ -16,9 +16,9 @@
 <!-- imagen baner-->
 <div style = "margin: 0 0 0 0;" class = "jumbotron jumbontron-fluid">
    <div class="container">
-     <center>
+    <center>
 	<img src="../img/headercenigraf.jpg" alt="cenigraf" >
-     </center>
+    </center>
      </div>
    </div>
             <!-- Barra de navegacion -->
@@ -71,7 +71,7 @@
   <div class="login-wrap">
 	<div class="login-html">
 		
-<label for="tab-2" class="tab"><h2>Registrar ficha:</h2></label>
+<label for="tab-2" class="tab"><h2>Registrar ficha</h2></label>
 <form  action="../controlador/nuevaficha.php" method="POST">
 
   <p>Numero de ficha:<input type="int" name="ficha" placeholder="2061628"></p>
@@ -105,7 +105,7 @@
   $fo=mysqli_query($conn,$forma);
 ?>
 
-<p>Ficha:<select name= "programa">
+<p>Ficha:<select name= "nivelf">
                             <?php while($row=mysqli_fetch_array($fo))
                             {?> 
 

@@ -79,8 +79,10 @@
   <div class="login-wrap">
 
 	<div class="login-html">
-		
-  <label for="tab-2" class="tab"><h2>Registrar Aprendiz:</h2></label>
+
+		 <!-- titulo forulario -->
+  <label for="tab-2" class="tab"><h2>Registrar Aprendiz</h2></label>
+     <!-- forulario -->
   <form  action="../controlador/nuevoaprendiz.php" method="POST">
   <p>Nombres:<input type="text" name="nombre" placeholder="Nombres completos"></p>
   <p>Apellidos:<input type="text" name="apellidos" placeholder="Apellidos completos"></p>
@@ -99,7 +101,7 @@
   <p>Nombre Empresa:<input type="text" name="empresa"></p>
 
 
-
+<!-- MYSQL se llama la tabla "EstadoA" -->
 <?php
   include '../controlador/conexion.php';
   $estadoa="SELECT * from estadoa";
@@ -120,7 +122,7 @@
 
 
 
-
+<!-- MYSQL se llama la tabla "ficha" -->
 <?php
   include '../controlador/conexion.php';
   $ficha="SELECT * from ficha";
@@ -140,6 +142,8 @@
 
 
 
+
+<!-- MYSQL se llama la tabla "programa" -->
 <?php
   include '../controlador/conexion.php';
   $programa="SELECT * from programa";
@@ -161,6 +165,7 @@
 
 
 
+<!-- MYSQL se llama la tabla "nivel formacion" -->
 <?php
   include '../controlador/conexion.php';
   $nivel="SELECT * from `nivel formacion`";
@@ -168,6 +173,7 @@
 ?>
 
   <p>Nivel programa:<select name= "nivel">
+  <option value="0">Seleccione</option>
                             <?php while($row=mysqli_fetch_array($ni))
                             {?> 
 
@@ -187,7 +193,7 @@
   $ins=mysqli_query($conn,$instructor);
 ?>
 
-  <p>Instructor:<select name= "instructo">
+  <p>Instructor:<select name= "instructor">
                             <?php while($row=mysqli_fetch_array($ins))
                             {?> 
 

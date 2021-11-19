@@ -2,10 +2,16 @@
 include ("conexion.php");
 
         $ficha =$_POST['ficha'];
-        $instructor =$_POST['instructor'];
+        $iniciol =$_POST['iniciolectiva'];
+        $finl =$_POST['finlectiva'];
+        $fechat =$_POST['fechatermino'];
+        $programa =$_POST['programa'];
+        $nivelf =$_POST['nivelf'];
 
         if ($_POST['registrar']) {
-        $insertar="INSERT INTO fichas (Id_ficha, instructor) VALUES ('$ficha', '$instructor')";
+        ECHO $insertar="INSERT INTO fichas (idFICHA, FILectiva, FFLectiva, FTFicha, Programa_idPrograma, Programa_Nivel Formacion_idNivel Formacion) 
+                               VALUES ('$ficha', '$iniciol', '$finl', '$fechat', '$programa', '$nivelf')";
+
              mysqli_query($conn,$insertar);
 
              /*if ($resultado) {
