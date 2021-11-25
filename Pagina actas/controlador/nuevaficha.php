@@ -9,7 +9,7 @@ include ("conexion.php");
         $nivelf =$_POST['nivelf'];
 
         if ($_POST['registrar']) {
-        ECHO $insertar="INSERT INTO fichas (idFICHA, FILectiva, FFLectiva, FTFicha, Programa_idPrograma, Programa_Nivel Formacion_idNivel Formacion) 
+        echo $insertar="INSERT INTO fichas (idFICHA, FILectiva, FFLectiva, FTFicha, Programa_idPrograma, Programa_Nivel Formacion_idNivel Formacion) 
                                VALUES ('$ficha', '$iniciol', '$finl', '$fechat', '$programa', '$nivelf')";
 
              mysqli_query($conn,$insertar);

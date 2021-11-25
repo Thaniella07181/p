@@ -148,7 +148,7 @@ if (isset($_POST['buscar'])){
         <th nowrap>Tel/cel aprendiz</th>
         <th nowrap>Inicio Etapa Productiva</th>
         <th nowrap>Inicio Etapa Productiva</th>                      
-        <th nowrap>Esatdo APCA</th>
+        <th nowrap>Estado APCA</th>
         <th nowrap>Tipo alternativa</th>
         <th nowrap>Estado Aprendiz</th>
         <th nowrap>Ficha</th>
