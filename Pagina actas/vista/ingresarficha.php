@@ -74,7 +74,7 @@
 <label for="tab-2" class="tab"><h2>Registrar ficha</h2></label>
 <form  action="../controlador/nuevaficha.php" method="POST">
 
-  <p>Numero de ficha:<input type="int" name="ficha" placeholder="2061628"></p>
+  <p>Numero de ficha:<input type="int" name="ficha" placeholder=" ejemplo: 2061..."></p>
   <p>Fecha inicio lectiva:<input type="date" name="iniciolectiva" ></p>
   <p>Fecha fin lectiva:<input type="date" name="finlectiva" ></p>
   <p>Fecha terminacion ficha:<input type="date" name="fechatermino" ></p>
@@ -87,10 +87,11 @@
 ?>
 
   <p>Ficha:<select name= "programa">
+  <option value="0">Seleccione</option>
                             <?php while($row=mysqli_fetch_array($pr))
                             {?> 
 
-                             <option value="<?php echo $row['NombrePrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
+                             <option value="<?php echo $row['idPrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
                             <?php
                             }
                             ?>
@@ -98,23 +99,26 @@
                      </select></p>
 
 
-  
+<!-- MYSQL se llama la tabla "nivel formacion" -->
 <?php
   include '../controlador/conexion.php';
-  $forma="SELECT * from `nivel formacion`";
-  $fo=mysqli_query($conn,$forma);
+  $nivel="SELECT * from `nivel _formacion`";
+  $ni=mysqli_query($conn,$nivel);
 ?>
 
-<p>Ficha:<select name= "nivelf">
-                            <?php while($row=mysqli_fetch_array($fo))
+  <p>Nivel programa:<select name= "nivelf">
+  <option value="0">Seleccione</option>
+                            <?php while($row=mysqli_fetch_array($ni))
                             {?> 
 
-                             <option value="<?php echo $row['NombreNivel'];?>"><?php echo $row['NombreNivel'];?></option>
+                             <option value="<?php echo $row['idNivelFormacion'];?>"><?php echo $row['NombreNivel'];?></option>
                             <?php
                             }
                             ?>
 
-         </select></p>
+                    </select>
+  </p>
+
 
                      
   <p><input type="submit" value="Registrar" name="registrar"></p>

@@ -84,6 +84,7 @@
   <label for="tab-2" class="tab"><h2>Registrar Aprendiz</h2></label>
      <!-- forulario -->
   <form  action="../controlador/nuevoaprendiz.php" method="POST">
+  <p>id Aprendiz:<input type="number" name="idAprendiz"></p>
   <p>Nombres:<input type="text" name="nombre" placeholder="Nombres completos"></p>
   <p>Apellidos:<input type="text" name="apellidos" placeholder="Apellidos completos"></p>
   <p>Tipo de documento: <select name= "tipo_documento">
@@ -109,6 +110,7 @@
 ?>
 
   <p>Estado <select name= "estadoA">
+  <option value="0">Seleccione</option>
                             <?php while($row=mysqli_fetch_array($es))
                             {?> 
 
@@ -130,6 +132,7 @@
 ?>
 
   <p>Ficha:<select name= "ficha">
+  <option value="0">Seleccione</option>
                             <?php while($row=mysqli_fetch_array($fi))
                             {?> 
 
@@ -151,6 +154,7 @@
 ?>
 
   <p>Programa:<select name= "programa">
+  <option value="0">Seleccione</option>
                             <?php while($row=mysqli_fetch_array($pro))
                             {?> 
 
@@ -168,7 +172,7 @@
 <!-- MYSQL se llama la tabla "nivel formacion" -->
 <?php
   include '../controlador/conexion.php';
-  $nivel="SELECT * from `nivel formacion`";
+  $nivel="SELECT * from `nivel _formacion`";
   $ni=mysqli_query($conn,$nivel);
 ?>
 
@@ -177,7 +181,7 @@
                             <?php while($row=mysqli_fetch_array($ni))
                             {?> 
 
-                             <option value="<?php echo $row['idNivel Formacion'];?>"><?php echo $row['NombreNivel'];?></option>
+                             <option value="<?php echo $row['idNivelFormacion'];?>"><?php echo $row['NombreNivel'];?></option>
                             <?php
                             }
                             ?>
@@ -187,6 +191,8 @@
 
 
 
+
+<!-- MYSQL se llama la tabla "instructor" -->
 <?php
   include '../controlador/conexion.php';
   $instructor="SELECT * from instructor";
@@ -194,6 +200,7 @@
 ?>
 
   <p>Instructor:<select name= "instructor">
+  <option value="0">Seleccione</option>
                             <?php while($row=mysqli_fetch_array($ins))
                             {?> 
 
