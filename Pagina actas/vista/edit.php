@@ -6,13 +6,16 @@ include '../controlador/conexion.php';
 
   function ConsultarUsuarios($Id_usu)
   {
-    $sentencia="SELECT * FROM uduarios WHERE Id='".$Id_usu."' ";
+    $sentencia="SELECT * FROM usuarios WHERE Id='".$Id_usu."' ";
     $resultado=mysqli_query($sentencia) or die (mysqli_error());
-    $filas=mysqli_fetch_assoc($resultado);
+    $mostrar=mysqli_fetch_assoc($resultado);
     return [
-      $filas['id_producto'],
-      $filas['nombre'],
-      $filas['descripcion']
+      $mostrar['Id'],
+      $mostrar['nombre'],
+      $mostrar['usuario'],
+      $mostrar['id_cargo'],
+      $mostrar['email'],
+      $mostrar['contrasena']
     ];
 
   }
