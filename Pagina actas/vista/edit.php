@@ -2,13 +2,13 @@
   <?php
 include '../controlador/conexion.php';
 
-  $consulta=ConsultarUsuarios($_GET['Id']);
+  $consulta=ConsultarUsuarios($_POST['Id']);
 
   function ConsultarUsuarios($Id_usu)
   {
-    $sentencia="SELECT * FROM usuarios WHERE Id='".$Id_usu."' ";
-    $resultado=mysqli_query($sentencia) or die (mysqli_error());
-    $mostrar=mysqli_fetch_assoc($resultado);
+    $sql="SELECT * FROM usuarios WHERE Id='".$Id_usu."' ";
+    $result=mysqli_query($sql) or die (mysqli_error());
+    $mostrar=mysqli_fetch_assoc($result);
     return [
       $mostrar['Id'],
       $mostrar['nombre'],
@@ -68,19 +68,24 @@ include '../controlador/conexion.php';
   		<span> <h1>Editar Usuarios</h1> </span>
   		<br>
 	  <form action="edit2.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
-      <input type="hidden" name="Id" value="<?php echo $_GET['Id']?> ">
-  		<label>Nombre:</label>
-  		<input type="text" id="id_producto" name="id_producto"; value="<?php echo $consulta[0] ?>" ><br>
+     
+      <input type="hidden" name="Id" value="<?php echo $_POST['Id']?> ">
+  		
+      <label>Id usuario:</label>
+  		<input type="int" id="id_usuario" name="id_usuario"; value="<?php echo $consulta[0] ?>" ><br>
+
+      <label>Nombre:</label>
+  		<input type="text" id="nombre" name="nombre"; value="<?php echo $consulta[1] ?>" ><br>
   		
   		<label>Usuario:</label>
-  		<input type="text" id="producto" name="producto" value="<?php echo $consulta[1] ?>"><br>
+  		<input type="text" id="usuario" name="usuario" value="<?php echo $consulta[2] ?>"><br>
   		
   		<label>Contraseña </label>
-  		<input type="password" id="producto" name="producto" value="<?php echo $consulta[2] ?>"><br>
+  		<input type="password" id="contraseña" name="contraseña" value="<?php echo $consulta[3] ?>"><br>
   		
   		
       <label>Id cargo:</label>
-  		<input type="number" id="producto" name="producto" value="<?php echo $consulta[3] ?>"><br>
+  		<input type="int" id="cargo" name="cargo" value="<?php echo $consulta[4] ?>"><br>
 
   		<br>
   		<button type="submit" class="btn btn-success">Guardar</button>

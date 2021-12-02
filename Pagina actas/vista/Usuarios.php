@@ -111,7 +111,7 @@ include '../controlador/conexion.php';
         margin-top: 27px;
         margin-bottom: 25px;
         background-position: center;">
-<p style="padding: 5px 0px 18px 68px;"> <center> 
+<p style="padding: 5px 0px 18px 68px;"> 
 Servicio Nacional de Aprendizaje SENA- Centro para la industria de la Comunicación Gráfica Cenigraf - Regional Distrito Capital
 <br>  
 Dirección: Calle 15 # 31 - 42 – Teléfonos: 546 1500 o 596 0100 Ext.: 15 463
@@ -123,7 +123,7 @@ Atención telefónica: lunes a viernes 7:00 a.m. a 7:00 p.m. - sábados 8:00 a.m
 Atención al ciudadano: Bogotá (57 1) 3430111 - Línea gratuita y resto del país 018000 910270
 <br>
 Atención al empresario: Bogotá (57 1) 3430101 - Línea gratuita y resto del país 018000 910682
-</center> </p>
+</p>
 </footer>
    
 </body>
