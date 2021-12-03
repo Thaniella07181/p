@@ -1,16 +1,16 @@
 <?php
 	include 'conexion.php';
 
-	ModificarUsuario($_POST['id_producto'], $_POST['producto'], $_POST['descripcion'], $_POST['no']);
+	ModificarUsuario($_POST['nombre'], $_POST['usuario'], $_POST['contraseña'], $_POST['cargo'], $_POST['Id']);
 
-	function ModificarUsuario($id_prod, $nom, $descrip, $no)
+	function ModificarUsuario( $nom, $usu, $email, $contra, $id_cargo, $id_usu)
 	{
-		$sentencia="UPDATE productos SET id_producto='".$id_prod."', nombre= '".$nom."', descripcion='".$descrip."' WHERE no='".$no."' ";
+		$sentencia="UPDATE usuarios SET nombre='".$nom."', usuario='".$usu."', email='".$email."', contraseña='".$contra."', id_cargo='".$id_cargo."' WHERE Id='".$id_usu."' ";
 		mysql_query($sentencia) or die (mysql_error());
 	}
 ?>
 
 <script type="text/javascript">
-	alert("Producto Modificado exitosamente");
+	alert("Usuario Modificado exitosamente");
 	window.location.href='index.php';
 </script>

@@ -2,9 +2,9 @@
   <?php
 include '../controlador/conexion.php';
 
-  $consulta=ConsultarUsuarios($_POST['Id']);
+  $consulta=ConsultarUsuario($_POST['Id']);
 
-  function ConsultarUsuarios($Id_usu)
+  function ConsultarUsuario($Id_usu)
   {
     $sql="SELECT * FROM usuarios WHERE Id='".$Id_usu."' ";
     $result=mysqli_query($sql) or die (mysqli_error());
@@ -71,21 +71,21 @@ include '../controlador/conexion.php';
      
       <input type="hidden" name="Id" value="<?php echo $_POST['Id']?> ">
   		
-      <label>Id usuario:</label>
-  		<input type="int" id="id_usuario" name="id_usuario"; value="<?php echo $consulta[0] ?>" ><br>
+    <!--  <label>Id usuario:</label>
+  		<input type="int" id="id_usuario" name="id_usuario"; value="<?php # echo $consulta[0] ?>" ><br>-->
 
       <label>Nombre:</label>
-  		<input type="text" id="nombre" name="nombre"; value="<?php echo $consulta[1] ?>" ><br>
+  		<input type="text" id="nombre" name="nombre"; value="<?php echo $consulta[0] ?>" ><br>
   		
   		<label>Usuario:</label>
-  		<input type="text" id="usuario" name="usuario" value="<?php echo $consulta[2] ?>"><br>
+  		<input type="text" id="usuario" name="usuario" value="<?php echo $consulta[1] ?>"><br>
   		
   		<label>Contraseña </label>
-  		<input type="password" id="contraseña" name="contraseña" value="<?php echo $consulta[3] ?>"><br>
+  		<input type="password" id="contraseña" name="contraseña" value="<?php echo $consulta[2] ?>"><br>
   		
   		
       <label>Id cargo:</label>
-  		<input type="int" id="cargo" name="cargo" value="<?php echo $consulta[4] ?>"><br>
+  		<input type="int" id="cargo" name="cargo" value="<?php echo $consulta[3] ?>"><br>
 
   		<br>
   		<button type="submit" class="btn btn-success">Guardar</button>
