@@ -2,12 +2,13 @@
   <?php
 include '../controlador/conexion.php';
 
-  $consulta=ConsultarUsuario($_POST['Id']);
+  $consulta=ConsultarUsuario($_GET['Id']);
 
   function ConsultarUsuario($Id_usu)
   {
+    include '../controlador/conexion.php';
     $sql="SELECT * FROM usuarios WHERE Id='".$Id_usu."' ";
-    $result=mysqli_query($sql) or die (mysqli_error());
+    $result=mysqli_query($conn,$sql);
     $mostrar=mysqli_fetch_assoc($result);
     return [
       $mostrar['Id'],
@@ -90,7 +91,7 @@ include '../controlador/conexion.php';
   		<br>
   		<button type="submit" class="btn btn-success">Guardar</button>
      </form>
-  	</div>
+  	</div> 
   	
   </div>
 
