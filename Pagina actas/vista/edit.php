@@ -7,16 +7,19 @@ include '../controlador/conexion.php';
   function ConsultarUsuario($Id_usu)
   {
     include '../controlador/conexion.php';
-    $sql="SELECT * FROM usuarios WHERE Id='".$Id_usu."' ";
+    $sql="SELECT * FROM usuarios,cargo WHERE usuarios.id_cargo=cargo.Id  and  usuarios.Id='".$Id_usu."' ";
     $result=mysqli_query($conn,$sql);
     $mostrar=mysqli_fetch_assoc($result);
     return [
+
       $mostrar['Id'],
       $mostrar['nombre'],
       $mostrar['usuario'],
-      $mostrar['id_cargo'],
       $mostrar['email'],
-      $mostrar['contrasena']
+      $mostrar['contrasena'],
+      $mostrar['id_cargo'],
+      $mostrar['descripcion']
+     
     ];
 
   }
@@ -68,25 +71,33 @@ include '../controlador/conexion.php';
   	<div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
   		<span> <h1>Editar Usuarios</h1> </span>
   		<br>
-	  <form action="edit2.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
+	  <form action="../controlador/edit2.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
      
-      <input type="hidden" name="Id" value="<?php echo $_POST['Id']?> ">
+      <input type="hidden" name="Id" value="<?php echo $_GET['Id'];?> ">
   		
     <!--  <label>Id usuario:</label>
   		<input type="int" id="id_usuario" name="id_usuario"; value="<?php # echo $consulta[0] ?>" ><br>-->
 
       <label>Nombre:</label>
-  		<input type="text" id="nombre" name="nombre"; value="<?php echo $consulta[0] ?>" ><br>
+  		<input type="text" id="nombre" name="nombre"; value="<?php echo $consulta[1] ?>" ><br>
   		
   		<label>Usuario:</label>
-  		<input type="text" id="usuario" name="usuario" value="<?php echo $consulta[1] ?>"><br>
+  		<input type="text" id="usuario" name="usuario" value="<?php echo $consulta[2] ?>"><br>
+
+      <label>Email:</label>
+  		<input type="text" id="email" name="email" value="<?php echo $consulta[3] ?>"><br>
   		
   		<label>Contraseña </label>
-  		<input type="password" id="contraseña" name="contraseña" value="<?php echo $consulta[2] ?>"><br>
+  		<input type="password" id="contraseña" name="contrasena" value="<?php echo $consulta[4] ?>"><br>
   		
   		
       <label>Id cargo:</label>
-  		<input type="int" id="cargo" name="cargo" value="<?php echo $consulta[3] ?>"><br>
+  	<!--	<input type="int" id="cargo" name="cargo" value="<?php echo $consulta[5] ?>"><br>-->
+      <select name="cargo">
+        <option value="<?php echo $consulta[5] ?>"><?php echo $consulta[6] ?></option>
+        <option value="1">Administrador</option>
+        <option value="2">Instructor</option>
+      </select>
 
   		<br>
   		<button type="submit" class="btn btn-success">Guardar</button>

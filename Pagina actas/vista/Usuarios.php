@@ -64,6 +64,7 @@ include '../controlador/conexion.php';
       <tr>
         <th>Nombre</th>
         <th>Usuario</th>
+        <th>Email</th>
         <th>Contraseña</th>
 		    <th>Id_cargo</th>
         <th>Editar/eliminar</th>
@@ -85,8 +86,8 @@ include '../controlador/conexion.php';
         <td><?php echo $mostrar['contrasena']?></td>
 		    <td><?php echo $mostrar['id_cargo']?></td>
         <?php
-          echo "<td> <a href='edit.php?Id=".$mostrar['Id']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
-          echo "<td> <a href='elim.php?Id=".$mostrar['Id']."''><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
+          echo "<td> <a href='../vista/edit.php?Id=".$mostrar['Id']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
+          echo "<td> <a href='../controlador/eliminar.php?Id=".$mostrar['Id']."'><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
         echo "</tr>";
       ?>
     </tr>
