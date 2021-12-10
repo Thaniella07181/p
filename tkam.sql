@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2021 a las 02:40:17
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 8.0.0
+-- Tiempo de generación: 10-12-2021 a las 20:52:01
+-- Versión del servidor: 10.4.16-MariaDB
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `actas2021`
+-- Base de datos: `tkam`
 --
 
 -- --------------------------------------------------------
@@ -54,6 +54,37 @@ INSERT INTO `acta` (`CodActa`, `Ciudad`, `FechaActa`, `HoraInicio`, `HoraFinal`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `aprendices`
+--
+
+CREATE TABLE `aprendices` (
+  `idAprendiz` int(11) NOT NULL,
+  `NombreAprendiz` varchar(45) NOT NULL,
+  `cedula` int(100) NOT NULL,
+  `acto_academico` varchar(600) NOT NULL,
+  `inicio_etapa_lectiva` date NOT NULL,
+  `fin_etapa_lectiva` date NOT NULL,
+  `inicio_etapa_productiva` date NOT NULL,
+  `fin_etapa_productiva` date NOT NULL,
+  `id_ficha` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `aprendices`
+--
+
+INSERT INTO `aprendices` (`idAprendiz`, `NombreAprendiz`, `cedula`, `acto_academico`, `inicio_etapa_lectiva`, `fin_etapa_lectiva`, `inicio_etapa_productiva`, `fin_etapa_productiva`, `id_ficha`) VALUES
+(0, 'Luisa Rios', 1000364986, 'desercion', '2021-11-09', '2022-02-16', '2022-05-11', '2022-08-19', 2432156),
+(0, 'Pepito Maracaibo', 1000564849, '2', '2021-11-12', '2021-11-06', '2021-11-07', '2021-11-27', 1549786),
+(0, 'ailen tejas', 2147483647, 'Condicionamiento', '2021-12-04', '2021-11-27', '2021-11-17', '2021-11-20', 2023563),
+(0, 'alan brito delgado ', 1000231458, 'Condicionamiento', '2021-11-03', '2021-11-09', '2021-11-10', '2021-12-04', 2023563),
+(0, 'sad', 2147483647, 'Cancelacion', '2021-11-04', '2021-11-10', '2021-11-14', '2021-11-25', 2432156),
+(0, 'sad', 2147483647, 'Cancelacion', '2021-11-04', '2021-11-10', '2021-11-14', '2021-11-25', 2432156),
+(0, '', 0, '0', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1234524);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `aprendiz`
 --
 
@@ -61,6 +92,8 @@ CREATE TABLE `aprendiz` (
   `idAprendiz` int(11) NOT NULL,
   `NombreAPrendiz` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
   `ApellidoAPrendiz` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
+  `Tipo_documento_identificacion` varchar(50) COLLATE utf32_spanish2_ci NOT NULL,
+  `Documento_identificacion` int(50) NOT NULL,
   `EmailAprendiz` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
   `TelAprendiz` int(11) DEFAULT NULL,
   `FIProductiva` date DEFAULT NULL,
@@ -79,8 +112,29 @@ CREATE TABLE `aprendiz` (
 -- Volcado de datos para la tabla `aprendiz`
 --
 
-INSERT INTO `aprendiz` (`idAprendiz`, `NombreAPrendiz`, `ApellidoAPrendiz`, `EmailAprendiz`, `TelAprendiz`, `FIProductiva`, `FFEProductiva`, `EstadoAPCA`, `TipoAlternativa`, `NombreEmpresa`, `EstadoA_idEstadoA`, `FICHA_idFICHA`, `FICHA_Programa_idPrograma`, `FICHA_Programa_Nivel Formacion_idNivel Formacion`, `Instructor_idInstructor`) VALUES
-(40414, 'FELIPE', 'GOMEZ', 'cifuentes0903@gmail.com', 2669032, '2021-11-01', '2022-05-01', 'activo', 'contrato de aprendizaje', 'cenigraf', 1, 2247675, 40414, 11, 28540);
+INSERT INTO `aprendiz` (`idAprendiz`, `NombreAPrendiz`, `ApellidoAPrendiz`, `Tipo_documento_identificacion`, `Documento_identificacion`, `EmailAprendiz`, `TelAprendiz`, `FIProductiva`, `FFEProductiva`, `EstadoAPCA`, `TipoAlternativa`, `NombreEmpresa`, `EstadoA_idEstadoA`, `FICHA_idFICHA`, `FICHA_Programa_idPrograma`, `FICHA_Programa_Nivel Formacion_idNivel Formacion`, `Instructor_idInstructor`) VALUES
+(3, 'Pepito Maracaibo', 'Ortiz', 'Cedula', 1001200027, 'frefrehtb@gmail.com', 11035144, '2021-11-26', '2021-12-12', 'activa', 'contrato', 'sena', 1, 2247675, 40414, 11, 28540),
+(6, 'Luisa Rios', 'Ortiz', 'Cedula', 1000364986, 'criscam.alvarez2002@gmail.com', 31124545, '2021-11-27', '2021-12-11', 'activa', 'contrato', 'alfa', 2, 2247675, 40414, 10, 28540),
+(40414, 'FELIPE', 'GOMEZ', 'cedula', 1000364986, 'cifuentes0903@gmail.com', 2669032, '2021-11-01', '2022-05-01', 'activo', 'contrato de aprendizaje', 'cenigraf', 1, 2247675, 40414, 11, 28540);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cargo`
+--
+
+CREATE TABLE `cargo` (
+  `Id` int(11) NOT NULL,
+  `descripcion` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cargo`
+--
+
+INSERT INTO `cargo` (`Id`, `descripcion`) VALUES
+(1, 'Administrador'),
+(2, 'Instructor');
 
 -- --------------------------------------------------------
 
@@ -123,7 +177,9 @@ CREATE TABLE `ficha` (
 --
 
 INSERT INTO `ficha` (`idFICHA`, `FILectiva`, `FFLectiva`, `FTFicha`, `Programa_idPrograma`, `Programa_Nivel Formacion_idNivel Formacion`) VALUES
-(2247675, '2023-08-05', '2022-09-03', '2021-11-20', 40414, 11);
+(123, '2021-11-13', '2021-11-06', '2021-11-12', 40414, 10),
+(2247675, '2023-08-05', '2022-09-03', '2021-11-20', 40414, 11),
+(15497654, '2021-11-03', '2021-11-20', '2021-11-26', 40414, 10);
 
 -- --------------------------------------------------------
 
@@ -251,6 +307,30 @@ INSERT INTO `tipofalta` (`idTipoFalta`, `NombreFalta`) VALUES
 (1, 'ACADEMICA'),
 (2, 'DISCIPLINARIA');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `Id` int(11) NOT NULL,
+  `nombre` varchar(250) NOT NULL,
+  `usuario` varchar(250) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contrasena` varchar(250) NOT NULL,
+  `id_cargo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`Id`, `nombre`, `usuario`, `email`, `contrasena`, `id_cargo`) VALUES
+(1, 'Rafael Martinez', 'Rafael', 'rafael96@gmail.com', '12345', 1),
+(10, 'andres', 'giovany', 'hector@gmail.com', '55555555', 2),
+(11, 'pepita linda', 'linda', 'lindajaja@gmail.com', '897450', 2);
+
 --
 -- Índices para tablas volcadas
 --
@@ -267,6 +347,12 @@ ALTER TABLE `acta`
   ADD KEY `FKREPORTE` (`Reporte_falta_Instructor_idInstructor`);
 
 --
+-- Indices de la tabla `aprendices`
+--
+ALTER TABLE `aprendices`
+  ADD KEY `id_ficha` (`id_ficha`);
+
+--
 -- Indices de la tabla `aprendiz`
 --
 ALTER TABLE `aprendiz`
@@ -276,6 +362,12 @@ ALTER TABLE `aprendiz`
   ADD KEY `fk_idPrograma` (`FICHA_Programa_idPrograma`),
   ADD KEY `FKidNivelFormacion` (`FICHA_Programa_Nivel Formacion_idNivel Formacion`),
   ADD KEY `FK_idInstructor` (`Instructor_idInstructor`);
+
+--
+-- Indices de la tabla `cargo`
+--
+ALTER TABLE `cargo`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indices de la tabla `estadoa`
@@ -331,14 +423,33 @@ ALTER TABLE `tipofalta`
   ADD PRIMARY KEY (`idTipoFalta`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `id_cargo` (`id_cargo`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `cargo`
+--
+ALTER TABLE `cargo`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `participantes`
 --
 ALTER TABLE `participantes`
   MODIFY `idParticipantes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
@@ -383,6 +494,12 @@ ALTER TABLE `programa`
 ALTER TABLE `reporte_falta`
   ADD CONSTRAINT `FKidInstructor` FOREIGN KEY (`Instructor_idInstructor`) REFERENCES `instructor` (`idInstructor`) ON UPDATE CASCADE,
   ADD CONSTRAINT `FKidTipoFalta` FOREIGN KEY (`TipoFalta_idTipoFalta`) REFERENCES `tipofalta` (`idTipoFalta`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `cargo` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -64,6 +64,14 @@
                    <a class="dropdown-item" href="../vista/ingresarficha.php">Ingresar Ficha </a>
                    </div>
               </li>
+
+              <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Tablas consolidadas</a>
+                   <div class="dropdown-menu">
+                   <a class="dropdown-item" href="../vista/cuadroconsolidado.php">Registro de actas</a>
+                   <a class="dropdown-item" href="../vista/reposteaprendices.php">Reporte de aprendices </a>
+                   </div>
+              </li>
               
               <li class="nav-item">
                    <a class="nav-link" href="../vista/editor.php">Usuarios</a>
