@@ -227,7 +227,7 @@
 
   <!-- Cierre contenedor 6 de tabla final-->
 </div>
-
+<button onclick="window.print()">Print this page</button>
  <!-- Boton de subir-->
 <center>
 <button  type="submit" class="btn btn-light" href="../vista/terminoActa.php">Crear acta</button>

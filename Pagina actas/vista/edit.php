@@ -72,7 +72,7 @@ include '../controlador/conexion.php';
   		<span> <h1>Editar Usuarios</h1> </span>
   		<br>
 	  <form action="../controlador/edit2.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
-     
+       
       <input type="hidden" name="Id" value="<?php echo $_GET['Id'];?> ">
   		
     <!--  <label>Id usuario:</label>
