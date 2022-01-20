@@ -120,7 +120,7 @@ if ($consul->num_rows > 0){?>
         <th nowrap> <center>Telefono</th> 
         <th nowrap> <center>Inicio Etapa Productiva</th>
         <th nowrap> <center>Inicio Etapa Productiva</th>                       
-        <th nowrap> <center>Esatdo APCA</th>
+        <th nowrap> <center>Estado APCA</th>
         <th nowrap> <center>Tipo alternativa</th>
         <th nowrap> <center>Nombre Empresa</th>
         <th nowrap> <center>Estado Aprendiz</th>
@@ -153,8 +153,8 @@ if ($consul->num_rows > 0){?>
         <td nowrap> <center><?php echo $row['Instructor_idInstructor'];?></center></td>
         </center>
         <?php
-          echo "<td> <a href='../vista/edit_aprendiz.php?Id=".$mostrar['Id']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
-          echo "<td> <a href='../controlador/eliminar_aprendiz.php?Id=".$mostrar['Id']."'><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
+          echo "<td> <a href='../vista/editaprendiz.php?Id=".$mostrar['Id']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
+          echo "<td> <a href='../controlador/eliminaprendiz.php?Id=".$mostrar['Id']."'><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
         echo "</tr>";
       ?>
         </tbody>
