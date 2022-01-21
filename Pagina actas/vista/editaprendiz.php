@@ -91,14 +91,20 @@ include '../controlador/conexion.php';
       <label>Nombre:</label>
   		<input type="text" id="NombreAPrendiz" name="NombreAPrendiz"; value="<?php echo $consulta[1] ?>" ><br>
   		
-  		<label>Usuario:</label>
+  		<label>Apellido:</label>
   		<input type="text" id="ApellidoAPrendiz" name="ApellidoAPrendiz" value="<?php echo $consulta[2] ?>"><br>
 
-      <label>Email:</label>
-  		<input type="text" id="email" name="email" value="<?php echo $consulta[3] ?>"><br>
-  		
-  		<label>Contraseña </label>
-  		<input type="password" id="contraseña" name="contrasena" value="<?php echo $consulta[4] ?>"><br>
+      <label>Tipo documento:</label>
+      <select name="Tipo_documento_identificacion">
+        <option value="<?php echo $consulta[3] ?>"></option>
+        <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+        <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+        <option value=" Cedula de ciudadania">Cedula de extranjeria</option>
+        <option value="PEP">PEP</option>
+      </select>
+
+  		<label>Documento identificacion:</label>
+  		<input type="int" id="Documento_identificacion" name="Documento_identificacion" value="<?php echo $consulta[4] ?>"><br>
   		
   		
       <label>Id cargo:</label>

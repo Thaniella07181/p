@@ -84,21 +84,34 @@
   <label for="tab-2" class="tab"><h2>Registrar Aprendiz</h2></label>
      <!-- forulario -->
   <form  action="../controlador/nuevoaprendiz.php" method="POST">
-  <p>id Aprendiz:<input type="number" name="idAprendiz"></p>
+  <p>id Aprendiz:<input type="int" name="idAprendiz"></p>
   <p>Nombres:<input type="text" name="nombre" placeholder="Nombres completos"></p>
   <p>Apellidos:<input type="text" name="apellidos" placeholder="Apellidos completos"></p>
   <p>Tipo de documento: <select name= "tipo_documento">
-                              <option value= "0"> </option>
-                              <option value= "Tarjeta de identidad"> Tarjeta de identidad</option>
-                              <option value= "Cedula"> Cedula </option></p>
+                              <option value= "0">Seleccionar</option>
+                              <option value= "Cedula de ciudadania"> Cedula de ciudadania</option>
+                              <option value= "Tarjeta de identidad"> Tarjeta de identidad </option></p>
+                              <option value= "Cedula de extranjeria"> Cedula de extranjeria</option>
+                              <option value= "PEP"> PEP </option></p>
                      </select></p>
   <p>Numero de documento:<input type="int" name="documento" placeholder="Numero de documento"></p>
   <p>Email:<input type="email" name="email" placeholder="ejemplo@gmail.com"></p>
   <p>Numero de tel/cel:<input type="int" name="telefono" placeholder="Numero de celular"></p>
+  <p>Fecha inicio E.Lectiva:<input type="date" name="inicio"></p>
+  <p>Fecha fin E.Lectiva:<input type="date" name="fin"></p>
   <p>Fecha inicio E.Productiva:<input type="date" name="inicio"></p>
   <p>Fecha fin E.Productiva:<input type="date" name="fin"></p>
   <p>Estado APCA:<input type="text" name="estado"></p>
-  <p>Tipo de alternativa:<input type="text" name="tipo"></p>
+  <p>Tipo de alternativa: <select name= "tipo_de_alternativa">
+                              <option value= "0">Seleccionar</option>
+                              <option value= "Contrato de aprendizaje"> Contrato de aprendizaje</option>
+                              <option value= "Vinculo contractual"> Vinculo contractual </option></p>
+                              <option value= "Pasantia"> Pasantia</option>
+                              <option value= "Apoyo a una institucion"> Apoyo a una institucion </option></p>
+                              <option value= "Proyecto productivo"> Proyecto productivo</option>
+                              <option value= "Unidad productiva familiar">Unidad productiva familiar </option></p>
+                              <option value= "Monitoria">Monitoria </option></p>
+                     </select></p>
   <p>Nombre Empresa:<input type="text" name="empresa"></p>
 
 
