@@ -94,7 +94,7 @@
 <?php
 include '../controlador/conexion.php';
 
-$consul= $conn->query("SELECT * FROM aprendiz");
+$consul= $conn->query("SELECT * FROM aprendiz,estadoa,ficha,programa,`nivel _formacion`,instructor where aprendiz.EstadoA_idEstadoA=estadoa.idEstadoA and aprendiz.FICHA_idFICHA=ficha.idFICHA and aprendiz.FICHA_Programa_idPrograma=programa.idPrograma and aprendiz.`FICHA_Programa_Nivel Formacion_idNivel Formacion`=`nivel _formacion`.`idNivelFormacion` and aprendiz.Instructor_idInstructor=instructor.idInstructor");
 
 if ($consul->num_rows > 0){?>
 
@@ -118,14 +118,16 @@ if ($consul->num_rows > 0){?>
         <th nowrap> <center>Apellidos</th>
         <th nowrap> <center>Correo Electronico</th>
         <th nowrap> <center>Telefono</th> 
+        <th nowrap> <center>Inicio Etapa Lectiva</th>
+        <th nowrap> <center>Fin Etapa Lectiva</th>  
         <th nowrap> <center>Inicio Etapa Productiva</th>
-        <th nowrap> <center>Inicio Etapa Productiva</th>                       
+        <th nowrap> <center>Fin Etapa Productiva</th>                       
         <th nowrap> <center>Estado APCA</th>
         <th nowrap> <center>Tipo alternativa</th>
         <th nowrap> <center>Nombre Empresa</th>
         <th nowrap> <center>Estado Aprendiz</th>
         <th nowrap> <center>Ficha</th>
-        <th nowrap> <center>Ficha Programa</th>
+        <th nowrap> <center>Programa</th>
         <th nowrap> <center>Nivel Formacion</th>
         <th nowrap> <center>Instructor</th>
         <th nowrap>Editar/eliminar</th>
@@ -142,19 +144,22 @@ if ($consul->num_rows > 0){?>
         <td nowrap> <center><?php echo $row['ApellidoAPrendiz'];?></center></td>
         <td nowrap> <center><?php echo $row['EmailAprendiz'];?></center></td>
         <td nowrap> <center><?php echo $row['TelAprendiz'];?></center></td>
+        <td nowrap> <center><?php echo $row['FIELectiva'];?></center></center></td>
+        <td nowrap> <center><?php echo $row['FFELectiva'];?></center></td>
         <td nowrap> <center><?php echo $row['FIProductiva'];?></center></center></td>
         <td nowrap> <center><?php echo $row['FFEProductiva'];?></center></td>
         <td nowrap> <center><?php echo $row['EstadoAPCA'];?></center></td>
         <td nowrap> <center><?php echo $row['TipoAlternativa'];?></center></td>
         <td nowrap> <center><?php echo $row['NombreEmpresa'];?></center></td>
-        <td nowrap> <center><?php echo $row['EstadoA_idEstadoA'];?></center></td>
-        <td nowrap> <center><?php echo $row['FICHA_idFICHA'];?></center></td>
-        <td nowrap> <center><?php echo $row['FICHA_Programa_Nivel Formacion_idNivel Formacion'];?></center></td>
-        <td nowrap> <center><?php echo $row['Instructor_idInstructor'];?></center></td>
+        <td nowrap> <center><?php echo $row['EstadoA'];?></center></td>
+        <td nowrap> <center><?php echo $row['idFICHA'];?></center></td>
+        <td nowrap> <center><?php echo $row['NombrePrograma'];?></center></td>
+        <td nowrap> <center><?php echo $row['NombreNivel'];?></center></td>
+        <td nowrap> <center><?php echo $row['NombreInstructor'];?></center></td>
         </center>
         <?php
-          echo "<td> <a href='../vista/editaprendiz.php?Id=".$mostrar['Id']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
-          echo "<td> <a href='../controlador/eliminaprendiz.php?Id=".$mostrar['Id']."'><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
+          echo "<td> <a href='../vista/editaprendiz.php?Id=".$row['idAprendiz']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
+          echo "<td> <a href='../controlador/eliminaprendiz.php?Id=".$row['idAprendiz']."'><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
         echo "</tr>";
       ?>
         </tbody>

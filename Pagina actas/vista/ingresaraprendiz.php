@@ -97,12 +97,17 @@
   <p>Numero de documento:<input type="int" name="documento" placeholder="Numero de documento"></p>
   <p>Email:<input type="email" name="email" placeholder="ejemplo@gmail.com"></p>
   <p>Numero de tel/cel:<input type="int" name="telefono" placeholder="Numero de celular"></p>
-  <p>Fecha inicio E.Lectiva:<input type="date" name="inicio"></p>
-  <p>Fecha fin E.Lectiva:<input type="date" name="fin"></p>
+  <p>Fecha inicio E.Lectiva:<input type="date" name="iniciolec"></p>
+  <p>Fecha fin E.Lectiva:<input type="date" name="finlec"></p>
   <p>Fecha inicio E.Productiva:<input type="date" name="inicio"></p>
   <p>Fecha fin E.Productiva:<input type="date" name="fin"></p>
-  <p>Estado APCA:<input type="text" name="estado"></p>
-  <p>Tipo de alternativa: <select name= "tipo_de_alternativa">
+  <p>Estado APCA:<select  name="estado"></p>
+                              <option value= "0">Seleccionar</option>
+                              <option value= "Activo"> Activo </option>
+                              <option value= "Inactivo"> Inactivo </option></p>
+                              </select></p>
+
+  <p>Tipo de alternativa: <select name= "tipo">
                               <option value= "0">Seleccionar</option>
                               <option value= "Contrato de aprendizaje"> Contrato de aprendizaje</option>
                               <option value= "Vinculo contractual"> Vinculo contractual </option></p>
@@ -112,6 +117,7 @@
                               <option value= "Unidad productiva familiar">Unidad productiva familiar </option></p>
                               <option value= "Monitoria">Monitoria </option></p>
                      </select></p>
+
   <p>Nombre Empresa:<input type="text" name="empresa"></p>
 
 

@@ -8,6 +8,8 @@ include ("conexion.php");
         $documento=$_POST['documento'];
         $email=$_POST['email'];
         $telefono=$_POST['telefono'];
+        $fechailec=$_POST['iniciolec'];
+        $fechaflec=$_POST['finlec'];
         $fechai=$_POST['inicio'];
         $fechaf=$_POST['fin'];
         $estado =$_POST['estado'];
@@ -22,8 +24,8 @@ include ("conexion.php");
 
 
         if ($_POST['registrar']) {
-     $insertar="INSERT INTO `aprendiz` (`idAprendiz`, `NombreAPrendiz`, `ApellidoAPrendiz`, `Tipo_documento_identificacion`, `Documento_identificacion`, `EmailAprendiz`, `TelAprendiz`, `FIProductiva`, `FFEProductiva`, `EstadoAPCA`, `TipoAlternativa`, `NombreEmpresa`, `EstadoA_idEstadoA`, `FICHA_idFICHA`, `FICHA_Programa_idPrograma`, `FICHA_Programa_Nivel Formacion_idNivel Formacion`, `Instructor_idInstructor`) 
-                                         VALUES ('$idA', '$nombre', '$apellido', '$tipo', '$documento', '$email', '$telefono', '$fechai', '$fechaf', '$estado', '$alternativa', '$empresa', $estadoA, $ficha, $programa, $nivel, $instructor)";
+     $insertar="INSERT INTO `aprendiz` (`idAprendiz`, `NombreAPrendiz`, `ApellidoAPrendiz`, `Tipo_documento_identificacion`, `Documento_identificacion`, `EmailAprendiz`, `TelAprendiz`, `FIELectiva`, `FFELectiva`, `FIProductiva`, `FFEProductiva`, `EstadoAPCA`, `TipoAlternativa`, `NombreEmpresa`, `EstadoA_idEstadoA`, `FICHA_idFICHA`, `FICHA_Programa_idPrograma`, `FICHA_Programa_Nivel Formacion_idNivel Formacion`, `Instructor_idInstructor`) 
+                                         VALUES ('$idA', '$nombre', '$apellido', '$tipo', '$documento', '$email', '$telefono',  '$fechailec', '$fechaflec', '$fechai', '$fechaf', '$estado', '$alternativa', '$empresa', $estadoA, $ficha, $programa, $nivel, $instructor)";
              mysqli_query($conn,$insertar);
             }
              header("location:../vista/ingresaraprendiz.php")

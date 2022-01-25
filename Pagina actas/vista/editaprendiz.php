@@ -7,7 +7,7 @@ include '../controlador/conexion.php';
   function ConsultarAprendiz($Id_apr)
   {
     include '../controlador/conexion.php';
-    $sql="SELECT * FROM aprendiz,ficha WHERE aprendiz.FICHA_idFICHA=ficha.idFICHA  and  aprendiz.idFICHA='".$Id_apr."' ";
+    $sql="SELECT * FROM aprendiz,estadoa,ficha,programa,`nivel _formacion`,instructor where aprendiz.idAprendiz='".$Id_apr."' and aprendiz.EstadoA_idEstadoA=estadoa.idEstadoA and aprendiz.FICHA_idFICHA=ficha.idFICHA and aprendiz.FICHA_Programa_idPrograma=programa.idPrograma and aprendiz.`FICHA_Programa_Nivel Formacion_idNivel Formacion`=`nivel _formacion`.`idNivelFormacion` and aprendiz.Instructor_idInstructor=instructor.idInstructor";
     $result=mysqli_query($conn,$sql);
     $mostrar=mysqli_fetch_assoc($result);
     return [
@@ -19,16 +19,18 @@ include '../controlador/conexion.php';
       $mostrar['Documento_identificacion'],
       $mostrar['EmailAprendiz'],
       $mostrar['TelAprendiz'],
+      $mostrar['FIELectiva'],
+      $mostrar['FFELectiva'],
       $mostrar['FIProductiva'],
       $mostrar['FFEProductiva'],
       $mostrar['EstadoAPCA'],
       $mostrar['TipoAlternativa'],
       $mostrar['NombreEmpresa'],
-      $mostrar['EstadoA_idEstadoA'],
-      $mostrar['FICHA_idFICHA'],
-      $mostrar['FICHA_Programa_idPrograma'],
-      $mostrar['FICHA_Programa_Nivel Formacion_idNivel Formacion'],
-      $mostrar['Instructor_idInstructor']
+      $mostrar['EstadoA'],
+      $mostrar['idFICHA'],
+      $mostrar['NombrePrograma'],
+      $mostrar['NombreNivel'],
+      $mostrar['NombreInstructor']
      
     ];
 
@@ -96,25 +98,168 @@ include '../controlador/conexion.php';
 
       <label>Tipo documento:</label>
       <select name="Tipo_documento_identificacion">
-        <option value="<?php echo $consulta[3] ?>"></option>
+        <option value="<?php echo $consulta[3] ?>"><?php echo $consulta[3] ?></option>
         <option value="Cedula de ciudadania">Cedula de ciudadania</option>
         <option value="Tarjeta de identidad">Tarjeta de identidad</option>
         <option value=" Cedula de ciudadania">Cedula de extranjeria</option>
         <option value="PEP">PEP</option>
-      </select>
+      </select><br>
 
   		<label>Documento identificacion:</label>
   		<input type="int" id="Documento_identificacion" name="Documento_identificacion" value="<?php echo $consulta[4] ?>"><br>
-  		
-  		
-      <label>Id cargo:</label>
-  	<!--	<input type="int" id="cargo" name="cargo" value="<?php echo $consulta[5] ?>"><br>-->
-      <select name="cargo">
-        <option value="<?php echo $consulta[5] ?>"><?php echo $consulta[6] ?></option>
-        <option value="1">Administrador</option>
-        <option value="2">Instructor</option>
-      </select>
 
+
+      <label>Email:</label>
+  		<input type="text" id="EmailAprendiz" name="EmailAprendiz" value="<?php echo $consulta[5] ?>"><br>
+  		
+      <label>Tel/Cel:</label>
+  		<input type="int" id="TelAprendiz" name="TelAprendiz" value="<?php echo $consulta[6] ?>"><br>
+
+      <label>Fecha inicio E.Lectiva:</label>
+  		<input type="date" id="FIELectiva" name="FIELectiva" value="<?php echo $consulta[7] ?>"><br>
+
+
+      <label>Fecha fin E.Lectiva:</label>
+  		<input type="date" id="FFELectiva" name="FFELectiva" value="<?php echo $consulta[8] ?>"><br>
+
+      <label>Fecha inicio E.Productiva:</label>
+  		<input type="date" id="FIProductiva" name="FIProductiva" value="<?php echo $consulta[9] ?>"><br>
+
+      <label>Fecha fin E.Productiva:</label>
+  		<input type="date" id="FFEProductiva" name="FFEProductiva" value="<?php echo $consulta[10] ?>"><br>
+
+      <label>Estado APCA:</label>
+      <select name="EstadoAPCA">
+        <option value="<?php echo $consulta[11] ?>"><?php echo $consulta[11] ?></option>
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+      </select><br>
+
+      <label>Tipo de alternativa:</label>
+      <select name="TipoAlternativa">
+        <option value="<?php echo $consulta[12] ?>">  <?php echo $consulta[12]; ?>  </option>
+        <option value="Contrato de aprendizaje">Contrato de aprendizaje</option>
+        <option value="Vinculo contractual">Vinculo contractual</option>
+        <option value="Pasantia">Pasantia</option>
+        <option value="Apoyo a una institucion">Apoyo a una institucion</option>
+        <option value="Proyecto productivo">Proyecto productivo</option>
+        <option value="Unidad productiva familiar">Unidad productiva familiar</option>
+        <option value="Monitoria">Monitoria</option>
+      </select><br>
+
+      <label>Nombre empresa:</label>
+  		<input type="text" id="NombreEmpresa" name="NombreEmpresa" value="<?php echo $consulta[13] ?>"><br>
+
+
+      <!-- MYSQL se llama la tabla "EstadoA" -->
+
+<?php
+  include '../controlador/conexion.php';
+  $estadoa="SELECT * from estadoa";
+  $es=mysqli_query($conn,$estadoa);
+?>
+
+  <p>Estado <select name= "estadoA">
+  <option value="<?php echo $consulta[14]?>"><?php echo $consulta[14]?></option>
+                            <?php while($row=mysqli_fetch_array($es))
+                            {?> 
+
+                             <option value="<?php echo $row['idEstadoA'];?>"><?php echo $row['EstadoA'];?></option>
+                            <?php
+                            }
+                            ?>
+
+            </select><br>
+  </p>
+
+
+
+<!-- MYSQL se llama la tabla "ficha" -->
+<?php
+  include '../controlador/conexion.php';
+  $ficha="SELECT * from ficha";
+  $fi=mysqli_query($conn,$ficha);
+?>
+
+  <p>Ficha:<select name= "ficha">
+  <option value="<?php echo $consulta[15]?>"><?php echo $consulta[15]?></option>
+                            <?php while($row=mysqli_fetch_array($fi))
+                            {?> 
+
+                             <option value="<?php echo $row['idFICHA'];?>"><?php echo $row['idFICHA'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p><br>
+
+
+
+
+<!-- MYSQL se llama la tabla "programa" -->
+<?php
+  include '../controlador/conexion.php';
+  $programa="SELECT * from programa";
+  $pro=mysqli_query($conn,$programa);
+?>
+
+  <p>Programa:<select name= "programa">
+  <option value="<?php echo $consulta[16] ?>"><?php echo $consulta[16] ?></option>
+                            <?php while($row=mysqli_fetch_array($pro))
+                            {?> 
+
+                             <option value="<?php echo $row['idPrograma'];?>"><?php echo $row['NombrePrograma'];?></option>
+                            <?php
+                            }
+                            ?>
+
+              </select>
+  </p>
+  <br>
+
+
+
+<!-- MYSQL se llama la tabla "nivel formacion" -->
+<?php
+  include '../controlador/conexion.php';
+  $nivel="SELECT * from `nivel _formacion`";
+  $ni=mysqli_query($conn,$nivel);
+?>
+
+  <p>Nivel programa:<select name= "nivel">
+  <option value="<?php echo $consulta[17] ?>"><?php echo $consulta[17] ?></option>
+                            <?php while($row=mysqli_fetch_array($ni))
+                            {?> 
+
+                             <option value="<?php echo $row['idNivelFormacion'];?>"><?php echo $row['NombreNivel'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                    </select>
+  </p>
+  <br>
+
+
+
+<!-- MYSQL se llama la tabla "instructor" -->
+<?php
+  include '../controlador/conexion.php';
+  $instructor="SELECT * from instructor";
+  $ins=mysqli_query($conn,$instructor);
+?>
+
+  <p>Instructor:<select name= "instructor">
+  <option value="<?php echo $consulta[18] ?>"><?php echo $consulta[18] ?></option>
+                            <?php while($row=mysqli_fetch_array($ins))
+                            {?> 
+
+                             <option value="<?php echo $row['idInstructor'];?>"><?php echo $row['NombreInstructor'];?></option>
+                            <?php
+                            }
+                            ?>
+
+                     </select></p>
   		<br>
   		<button type="submit" class="btn btn-success">Guardar</button>
      </form>
