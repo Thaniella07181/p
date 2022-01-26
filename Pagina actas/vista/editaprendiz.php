@@ -83,7 +83,7 @@ include '../controlador/conexion.php';
   	<div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
   		<span> <h1>Editar Aprendiz</h1> </span>
   		<br>
-	  <form action="../controlador/edit2.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
+	  <form action="../controlador/editaprendiz.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
        
       <input type="hidden" name="idAprendiz" value="<?php echo $_GET['idAprendiz'];?> ">
   		
