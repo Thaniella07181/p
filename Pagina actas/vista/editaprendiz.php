@@ -13,24 +13,28 @@ include '../controlador/conexion.php';
     return [
 
       $mostrar['idAprendiz'], 
-      $mostrar['NombreAPrendiz'],
-      $mostrar['ApellidoAPrendiz'],
-      $mostrar['Tipo_documento_identificacion'],
-      $mostrar['Documento_identificacion'],
-      $mostrar['EmailAprendiz'],
-      $mostrar['TelAprendiz'],
-      $mostrar['FIELectiva'],
-      $mostrar['FFELectiva'],
-      $mostrar['FIProductiva'],
-      $mostrar['FFEProductiva'],
-      $mostrar['EstadoAPCA'],
-      $mostrar['TipoAlternativa'],
-      $mostrar['NombreEmpresa'],
-      $mostrar['EstadoA'],
-      $mostrar['idFICHA'],
-      $mostrar['NombrePrograma'],
-      $mostrar['NombreNivel'],
-      $mostrar['NombreInstructor']
+      $mostrar['NombreAPrendiz'], //1
+      $mostrar['ApellidoAPrendiz'], //2
+      $mostrar['Tipo_documento_identificacion'], //3
+      $mostrar['Documento_identificacion'], //4
+      $mostrar['EmailAprendiz'], //5
+      $mostrar['TelAprendiz'], //6
+      $mostrar['FIELectiva'], //7
+      $mostrar['FFELectiva'], //8
+      $mostrar['FIProductiva'], //9
+      $mostrar['FFEProductiva'], //10
+      $mostrar['EstadoAPCA'], //11
+      $mostrar['TipoAlternativa'], //12
+      $mostrar['NombreEmpresa'], //13
+      $mostrar['EstadoA'], //14
+      $mostrar['idFICHA'], //15
+      $mostrar['NombrePrograma'], //16
+      $mostrar['NombreNivel'], //17
+      $mostrar['NombreInstructor'], //18
+      $mostrar['idEstadoA'], //19
+      $mostrar['idPrograma'], //20
+      $mostrar['idNivelFormacion'], //21
+      $mostrar['idInstructor'] //22
      
     ];
 
@@ -85,7 +89,7 @@ include '../controlador/conexion.php';
   		<br>
 	  <form action="../controlador/editaprendiz.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
        
-      <input type="hidden" name="idAprendiz" value="<?php echo $_GET['idAprendiz'];?> ">
+      <input type="hidden" name="idAprendiz" value="<?php echo $consulta[0];?> ">
   		
     <!--  <label>Id usuario:</label>
   		<input type="int" id="id_usuario" name="id_usuario"; value="<?php # echo $consulta[0] ?>" ><br>-->
@@ -160,7 +164,7 @@ include '../controlador/conexion.php';
 ?>
 
   <p>Estado <select name= "estadoA">
-  <option value="<?php echo $consulta[14]?>"><?php echo $consulta[14]?></option>
+  <option value="<?php echo $consulta[19]?>"><?php echo $consulta[14]?></option>
                             <?php while($row=mysqli_fetch_array($es))
                             {?> 
 
@@ -204,7 +208,7 @@ include '../controlador/conexion.php';
 ?>
 
   <p>Programa:<select name= "programa">
-  <option value="<?php echo $consulta[16] ?>"><?php echo $consulta[16] ?></option>
+  <option value="<?php echo $consulta[20] ?>"><?php echo $consulta[16] ?></option>
                             <?php while($row=mysqli_fetch_array($pro))
                             {?> 
 
@@ -227,7 +231,7 @@ include '../controlador/conexion.php';
 ?>
 
   <p>Nivel programa:<select name= "nivel">
-  <option value="<?php echo $consulta[17] ?>"><?php echo $consulta[17] ?></option>
+  <option value="<?php echo $consulta[21] ?>"><?php echo $consulta[17] ?></option>
                             <?php while($row=mysqli_fetch_array($ni))
                             {?> 
 
@@ -250,7 +254,7 @@ include '../controlador/conexion.php';
 ?>
 
   <p>Instructor:<select name= "instructor">
-  <option value="<?php echo $consulta[18] ?>"><?php echo $consulta[18] ?></option>
+  <option value="<?php echo $consulta[22] ?>"><?php echo $consulta[18] ?></option>
                             <?php while($row=mysqli_fetch_array($ins))
                             {?> 
 
