@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2021 a las 20:52:01
+-- Tiempo de generación: 28-01-2022 a las 21:25:17
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.4.12
 
@@ -44,44 +44,6 @@ CREATE TABLE `acta` (
   `Adestacar` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish2_ci;
 
---
--- Volcado de datos para la tabla `acta`
---
-
-INSERT INTO `acta` (`CodActa`, `Ciudad`, `FechaActa`, `HoraInicio`, `HoraFinal`, `Lugar/Enlace`, `Agenda`, `ObjetivosReunion`, `Participantes`, `ConFicha`, `VerificacionActas`, `TipoFalta_idTipoFalta`, `Reporte_falta_Instructor_idInstructor`, `Adestacar`) VALUES
-('1010', 'BOGOTA D.C', '2021-11-01', '20:37:48', '22:37:48', 'SALA PRINCIPAL DE REUNIONES', 'PUNTOS DE LA AGENDA', 'OBJETIVOS DE LA REUNION', 1, 2247675, 'CONSULTAR DE ARCHIVOS DE LAS ACTAS ANTERIORES', 1, 2020, 40414);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `aprendices`
---
-
-CREATE TABLE `aprendices` (
-  `idAprendiz` int(11) NOT NULL,
-  `NombreAprendiz` varchar(45) NOT NULL,
-  `cedula` int(100) NOT NULL,
-  `acto_academico` varchar(600) NOT NULL,
-  `inicio_etapa_lectiva` date NOT NULL,
-  `fin_etapa_lectiva` date NOT NULL,
-  `inicio_etapa_productiva` date NOT NULL,
-  `fin_etapa_productiva` date NOT NULL,
-  `id_ficha` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `aprendices`
---
-
-INSERT INTO `aprendices` (`idAprendiz`, `NombreAprendiz`, `cedula`, `acto_academico`, `inicio_etapa_lectiva`, `fin_etapa_lectiva`, `inicio_etapa_productiva`, `fin_etapa_productiva`, `id_ficha`) VALUES
-(0, 'Luisa Rios', 1000364986, 'desercion', '2021-11-09', '2022-02-16', '2022-05-11', '2022-08-19', 2432156),
-(0, 'Pepito Maracaibo', 1000564849, '2', '2021-11-12', '2021-11-06', '2021-11-07', '2021-11-27', 1549786),
-(0, 'ailen tejas', 2147483647, 'Condicionamiento', '2021-12-04', '2021-11-27', '2021-11-17', '2021-11-20', 2023563),
-(0, 'alan brito delgado ', 1000231458, 'Condicionamiento', '2021-11-03', '2021-11-09', '2021-11-10', '2021-12-04', 2023563),
-(0, 'sad', 2147483647, 'Cancelacion', '2021-11-04', '2021-11-10', '2021-11-14', '2021-11-25', 2432156),
-(0, 'sad', 2147483647, 'Cancelacion', '2021-11-04', '2021-11-10', '2021-11-14', '2021-11-25', 2432156),
-(0, '', 0, '0', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1234524);
-
 -- --------------------------------------------------------
 
 --
@@ -96,6 +58,8 @@ CREATE TABLE `aprendiz` (
   `Documento_identificacion` int(50) NOT NULL,
   `EmailAprendiz` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
   `TelAprendiz` int(11) DEFAULT NULL,
+  `FIELectiva` date NOT NULL,
+  `FFELectiva` date NOT NULL,
   `FIProductiva` date DEFAULT NULL,
   `FFEProductiva` date DEFAULT NULL,
   `EstadoAPCA` varchar(50) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
@@ -112,10 +76,9 @@ CREATE TABLE `aprendiz` (
 -- Volcado de datos para la tabla `aprendiz`
 --
 
-INSERT INTO `aprendiz` (`idAprendiz`, `NombreAPrendiz`, `ApellidoAPrendiz`, `Tipo_documento_identificacion`, `Documento_identificacion`, `EmailAprendiz`, `TelAprendiz`, `FIProductiva`, `FFEProductiva`, `EstadoAPCA`, `TipoAlternativa`, `NombreEmpresa`, `EstadoA_idEstadoA`, `FICHA_idFICHA`, `FICHA_Programa_idPrograma`, `FICHA_Programa_Nivel Formacion_idNivel Formacion`, `Instructor_idInstructor`) VALUES
-(3, 'Pepito Maracaibo', 'Ortiz', 'Cedula', 1001200027, 'frefrehtb@gmail.com', 11035144, '2021-11-26', '2021-12-12', 'activa', 'contrato', 'sena', 1, 2247675, 40414, 11, 28540),
-(6, 'Luisa Rios', 'Ortiz', 'Cedula', 1000364986, 'criscam.alvarez2002@gmail.com', 31124545, '2021-11-27', '2021-12-11', 'activa', 'contrato', 'alfa', 2, 2247675, 40414, 10, 28540),
-(40414, 'FELIPE', 'GOMEZ', 'cedula', 1000364986, 'cifuentes0903@gmail.com', 2669032, '2021-11-01', '2022-05-01', 'activo', 'contrato de aprendizaje', 'cenigraf', 1, 2247675, 40414, 11, 28540);
+INSERT INTO `aprendiz` (`idAprendiz`, `NombreAPrendiz`, `ApellidoAPrendiz`, `Tipo_documento_identificacion`, `Documento_identificacion`, `EmailAprendiz`, `TelAprendiz`, `FIELectiva`, `FFELectiva`, `FIProductiva`, `FFEProductiva`, `EstadoAPCA`, `TipoAlternativa`, `NombreEmpresa`, `EstadoA_idEstadoA`, `FICHA_idFICHA`, `FICHA_Programa_idPrograma`, `FICHA_Programa_Nivel Formacion_idNivel Formacion`, `Instructor_idInstructor`) VALUES
+(2, 'camila', 'Ortiz', 'Tarjeta de identidad', 1001200027, 'camilo@gmail.com', 31124545, '2022-01-06', '2022-02-06', '2022-01-28', '2022-01-20', 'Activo', 'Vinculo contractual', 'alfa', 1, 15497654, 40414, 10, 28540),
+(4, 'tatiana', 'perez', 'Cedula de ciudadania', 14685310, 'tatape@gmail.com', 2147483647, '2021-12-30', '2022-01-28', '2022-01-28', '2022-01-08', 'Inactivo', 'Proyecto productivo', 'Sena-cenigraf', 1, 2247675, 40414, 10, 28540);
 
 -- --------------------------------------------------------
 
@@ -190,19 +153,19 @@ INSERT INTO `ficha` (`idFICHA`, `FILectiva`, `FFLectiva`, `FTFicha`, `Programa_i
 CREATE TABLE `instructor` (
   `idInstructor` int(11) NOT NULL,
   `NombreInstructor` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
-  `DescripcionFalta` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
-  `Componente` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
-  `HorasFalla` int(11) DEFAULT NULL,
-  `ReporteVoceroFica` text CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
-  `FechaReporte` date DEFAULT NULL
+  `ApellidosInstructor` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
+  `Cedula` int(100) DEFAULT NULL,
+  `Telefono` int(11) DEFAULT NULL,
+  `Asignatura` text CHARACTER SET utf16 COLLATE utf16_spanish2_ci DEFAULT NULL,
+  `FichaAsignada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `instructor`
 --
 
-INSERT INTO `instructor` (`idInstructor`, `NombreInstructor`, `DescripcionFalta`, `Componente`, `HorasFalla`, `ReporteVoceroFica`, `FechaReporte`) VALUES
-(28540, 'LEIDY JOHANNA', 'CIFUENTES MARTINEZ', 'TECNICO', 10, 'SE ADJUNTA DOCUMENTO', '2021-11-30');
+INSERT INTO `instructor` (`idInstructor`, `NombreInstructor`, `ApellidosInstructor`, `Cedula`, `Telefono`, `Asignatura`, `FichaAsignada`) VALUES
+(28540, 'LEIDY JOHANNA', 'CIFUENTES MARTINEZ', 0, 10, 'SE ADJUNTA DOCUMENTO', 123);
 
 -- --------------------------------------------------------
 
@@ -327,9 +290,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`Id`, `nombre`, `usuario`, `email`, `contrasena`, `id_cargo`) VALUES
-(1, 'Rafael Martinez', 'Rafael', 'rafael96@gmail.com', '12345', 1),
-(10, 'andres', 'giovany', 'hector@gmail.com', '55555555', 2),
-(11, 'pepita linda', 'linda', 'lindajaja@gmail.com', '897450', 2);
+(10, 'camilo', 'andres', 'cadres@gmail.com', '12345', 1);
 
 --
 -- Índices para tablas volcadas
@@ -345,12 +306,6 @@ ALTER TABLE `acta`
   ADD KEY `FKTipoFalta` (`TipoFalta_idTipoFalta`),
   ADD KEY `FKADESTACAR` (`Adestacar`),
   ADD KEY `FKREPORTE` (`Reporte_falta_Instructor_idInstructor`);
-
---
--- Indices de la tabla `aprendices`
---
-ALTER TABLE `aprendices`
-  ADD KEY `id_ficha` (`id_ficha`);
 
 --
 -- Indices de la tabla `aprendiz`
@@ -387,7 +342,8 @@ ALTER TABLE `ficha`
 -- Indices de la tabla `instructor`
 --
 ALTER TABLE `instructor`
-  ADD PRIMARY KEY (`idInstructor`);
+  ADD PRIMARY KEY (`idInstructor`),
+  ADD KEY `ficha` (`FichaAsignada`);
 
 --
 -- Indices de la tabla `nivel _formacion`
@@ -459,21 +415,21 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `acta`
 --
 ALTER TABLE `acta`
-  ADD CONSTRAINT `FKADESTACAR` FOREIGN KEY (`Adestacar`) REFERENCES `aprendiz` (`idAprendiz`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FKConFicha` FOREIGN KEY (`ConFicha`) REFERENCES `ficha` (`idFICHA`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FKPARTICIPANTES` FOREIGN KEY (`Participantes`) REFERENCES `participantes` (`idParticipantes`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FKREPORTE` FOREIGN KEY (`Reporte_falta_Instructor_idInstructor`) REFERENCES `reporte_falta` (`idReporte`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FKTipoFalta` FOREIGN KEY (`TipoFalta_idTipoFalta`) REFERENCES `tipofalta` (`idTipoFalta`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FKADESTACAR` FOREIGN KEY (`Adestacar`) REFERENCES `aprendiz` (`idAprendiz`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKConFicha` FOREIGN KEY (`ConFicha`) REFERENCES `ficha` (`idFICHA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKPARTICIPANTES` FOREIGN KEY (`Participantes`) REFERENCES `participantes` (`idParticipantes`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKREPORTE` FOREIGN KEY (`Reporte_falta_Instructor_idInstructor`) REFERENCES `reporte_falta` (`idReporte`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKTipoFalta` FOREIGN KEY (`TipoFalta_idTipoFalta`) REFERENCES `tipofalta` (`idTipoFalta`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `aprendiz`
 --
 ALTER TABLE `aprendiz`
-  ADD CONSTRAINT `FKESTADO` FOREIGN KEY (`EstadoA_idEstadoA`) REFERENCES `estadoa` (`idEstadoA`),
-  ADD CONSTRAINT `FK_idFICHA` FOREIGN KEY (`FICHA_idFICHA`) REFERENCES `ficha` (`idFICHA`),
-  ADD CONSTRAINT `FK_idInstructor` FOREIGN KEY (`Instructor_idInstructor`) REFERENCES `instructor` (`idInstructor`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FKidNivelFormacion` FOREIGN KEY (`FICHA_Programa_Nivel Formacion_idNivel Formacion`) REFERENCES `nivel _formacion` (`idNivelFormacion`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_idPrograma` FOREIGN KEY (`FICHA_Programa_idPrograma`) REFERENCES `programa` (`idPrograma`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FKESTADO` FOREIGN KEY (`EstadoA_idEstadoA`) REFERENCES `estadoa` (`idEstadoA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_idFICHA` FOREIGN KEY (`FICHA_idFICHA`) REFERENCES `ficha` (`idFICHA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_idInstructor` FOREIGN KEY (`Instructor_idInstructor`) REFERENCES `instructor` (`idInstructor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKidNivelFormacion` FOREIGN KEY (`FICHA_Programa_Nivel Formacion_idNivel Formacion`) REFERENCES `nivel _formacion` (`idNivelFormacion`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_idPrograma` FOREIGN KEY (`FICHA_Programa_idPrograma`) REFERENCES `programa` (`idPrograma`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `ficha`
@@ -481,6 +437,12 @@ ALTER TABLE `aprendiz`
 ALTER TABLE `ficha`
   ADD CONSTRAINT `FKFICHANIVEL` FOREIGN KEY (`Programa_Nivel Formacion_idNivel Formacion`) REFERENCES `nivel _formacion` (`idNivelFormacion`) ON UPDATE CASCADE,
   ADD CONSTRAINT `FKIDPROGRAMA` FOREIGN KEY (`Programa_idPrograma`) REFERENCES `programa` (`idPrograma`);
+
+--
+-- Filtros para la tabla `instructor`
+--
+ALTER TABLE `instructor`
+  ADD CONSTRAINT `ficha` FOREIGN KEY (`FichaAsignada`) REFERENCES `ficha` (`idFICHA`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `programa`
