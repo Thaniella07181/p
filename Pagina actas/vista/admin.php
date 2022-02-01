@@ -45,31 +45,22 @@
 
        <ul class="navbar-nav">
 
-               <li class="nav-item">
-                   <a class="nav-link" href="#">Actas</a>
-               </li>
 
-              <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Consulta</a>
-                   <div class="dropdown-menu">
-                   <a class="dropdown-item" href="../vista/consultaAprendiz.php">Consulta Aprendiz</a>
-                   <a class="dropdown-item" href="../vista/consultaFicha.php">Consulta Ficha </a>
-                   </div>
-              </li>
               
               <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registro</a>
                    <div class="dropdown-menu">
                    <a class="dropdown-item" href="../vista/ingresaraprendiz.php">Ingresar Aprendiz</a>
                    <a class="dropdown-item" href="../vista/ingresarficha.php">Ingresar Ficha </a>
+                   <a class="dropdown-item" href="../vista/ingresarinstructor.php">Ingresar Instructor </a>
                    </div>
               </li>
 
               <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Tablas consolidadas</a>
                    <div class="dropdown-menu">
-                   <a class="dropdown-item" href="../vista/cuadroconsolidado.php">Registro de actas</a>
-                   <a class="dropdown-item" href="../vista/reposteaprendices.php">Reporte de aprendices </a>
+                   <a class="dropdown-item" href="../vista/tablainstructor.php">Tabla de instructores</a>
+                   <a class="dropdown-item" href="../vista/reposteaprendices.php">Tabla de aprendices </a>
                    </div>
               </li>
               

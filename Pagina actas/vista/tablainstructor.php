@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> tabla informacion consolidada </title>
+	<title> tabla informacion instructor </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -43,17 +43,7 @@
 
 <ul class="navbar-nav">
 
-        <li class="nav-item">
-            <a class="nav-link" href="#">Actas</a>
-        </li>
-
-       <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Consulta</a>
-            <div class="dropdown-menu">
-            <a class="dropdown-item" href="../vista/consultaAprendiz.php">Consulta Aprendiz</a>
-            <a class="dropdown-item" href="../vista/consultaFicha.php">Consulta Ficha </a>
-            </div>
-       </li>
+       
        
        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registro</a>
@@ -86,7 +76,7 @@
 <div id="cont1">
 
     <!-- titulo-->
-    <h1>Aprendices en el Sistema</h1>
+    <h1>instructores en el Sistema</h1>
 
 <!-- Cierre contenedor 1 del cabecero del formato de acta-->
 </div>
@@ -95,7 +85,7 @@
 <?php
 include '../controlador/conexion.php';
 
-$consul= $conn->query("SELECT * FROM aprendiz,estadoa,ficha,programa,`nivel _formacion`,instructor where aprendiz.EstadoA_idEstadoA=estadoa.idEstadoA and aprendiz.FICHA_idFICHA=ficha.idFICHA and aprendiz.FICHA_Programa_idPrograma=programa.idPrograma and aprendiz.`FICHA_Programa_Nivel Formacion_idNivel Formacion`=`nivel _formacion`.`idNivelFormacion` and aprendiz.Instructor_idInstructor=instructor.idInstructor");
+$consul= $conn->query("SELECT * FROM ficha,instructor where instructor.FichaAsignada=ficha.idFICHA");
 
 if ($consul->num_rows > 0){?>
 
@@ -114,23 +104,13 @@ if ($consul->num_rows > 0){?>
       <tr>
         <thead>
         <center>
-        <th nowrap> <center>Id Aprendiz</th>
-        <th nowrap> <center>Nombres</th>
-        <th nowrap> <center>Apellidos</th>
-        <th nowrap> <center>Correo Electronico</th>
+        <th nowrap> <center>Id Instructor</th>
+        <th nowrap> <center>Nombres Instructor</th>
+        <th nowrap> <center>Apellidos Instructor</th>
+        <th nowrap> <center>Cedula</th>
         <th nowrap> <center>Telefono</th> 
-        <th nowrap> <center>Inicio Etapa Lectiva</th>
-        <th nowrap> <center>Fin Etapa Lectiva</th>  
-        <th nowrap> <center>Inicio Etapa Productiva</th>
-        <th nowrap> <center>Fin Etapa Productiva</th>                       
-        <th nowrap> <center>Estado APCA</th>
-        <th nowrap> <center>Tipo alternativa</th>
-        <th nowrap> <center>Nombre Empresa</th>
-        <th nowrap> <center>Estado Aprendiz</th>
-        <th nowrap> <center>Ficha</th>
-        <th nowrap> <center>Programa</th>
-        <th nowrap> <center>Nivel Formacion</th>
-        <th nowrap> <center>Instructor</th>
+        <th nowrap> <center>Asignatura</th>
+        <th nowrap> <center>Ficha Asignada</th>  
         <th nowrap>Editar/eliminar</th>
         </center>
         </thead>
@@ -140,27 +120,17 @@ if ($consul->num_rows > 0){?>
           <center>
           <?php while ($row =$consul->fetch_array()){?>
 
-        <td nowrap> <center><?php echo $row['idAprendiz'];?> </center></td>
-        <td nowrap> <center><?php echo $row['NombreAPrendiz'];?></center></td>
-        <td nowrap> <center><?php echo $row['ApellidoAPrendiz'];?></center></td>
-        <td nowrap> <center><?php echo $row['EmailAprendiz'];?></center></td>
-        <td nowrap> <center><?php echo $row['TelAprendiz'];?></center></td>
-        <td nowrap> <center><?php echo $row['FIELectiva'];?></center></center></td>
-        <td nowrap> <center><?php echo $row['FFELectiva'];?></center></td>
-        <td nowrap> <center><?php echo $row['FIProductiva'];?></center></center></td>
-        <td nowrap> <center><?php echo $row['FFEProductiva'];?></center></td>
-        <td nowrap> <center><?php echo $row['EstadoAPCA'];?></center></td>
-        <td nowrap> <center><?php echo $row['TipoAlternativa'];?></center></td>
-        <td nowrap> <center><?php echo $row['NombreEmpresa'];?></center></td>
-        <td nowrap> <center><?php echo $row['EstadoA'];?></center></td>
-        <td nowrap> <center><?php echo $row['idFICHA'];?></center></td>
-        <td nowrap> <center><?php echo $row['NombrePrograma'];?></center></td>
-        <td nowrap> <center><?php echo $row['NombreNivel'];?></center></td>
+        <td nowrap> <center><?php echo $row['idInstructor'];?> </center></td>
         <td nowrap> <center><?php echo $row['NombreInstructor'];?></center></td>
+        <td nowrap> <center><?php echo $row['ApellidosInstructor'];?></center></td>
+        <td nowrap> <center><?php echo $row['Cedula'];?></center></td>
+        <td nowrap> <center><?php echo $row['Telefono'];?></center></td>
+        <td nowrap> <center><?php echo $row['Asignatura'];?></center></center></td>
+        <td nowrap> <center><?php echo $row['FichaAsignada'];?></center></td>
         </center>
         <?php
-          echo "<td> <a href='../vista/editaprendiz.php?Id=".$row['idAprendiz']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
-          echo "<td> <a href='../controlador/eliminaprendiz.php?Id=".$row['idAprendiz']."'><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
+          echo "<td> <a href='../vista/editarinstructor.php?Id=".$row['idInstructor']."'> <button type='button' class='btn btn-outline-warning'>Editar</button></a> </td>";
+          echo "<td> <a href='../controlador/eliminainstructor.php?Id=".$row['idInstructor']."'><button type='button' class='btn btn-outline-danger'>Eliminar</button></a> </td>";
         echo "</tr>";
       ?>
         </tbody>

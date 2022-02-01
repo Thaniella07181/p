@@ -50,6 +50,27 @@ include '../controlador/conexion.php';
     <li class="nav-item">
       <a class="nav-link" href="../vista/Usuarios.php"> Editar Usuarios</a>
     </li>
+
+    
+       
+    <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registro</a>
+                   <div class="dropdown-menu">
+                   <a class="dropdown-item" href="../vista/ingresaraprendiz.php">Ingresar Aprendiz</a>
+                   <a class="dropdown-item" href="../vista/ingresarficha.php">Ingresar Ficha </a>
+                   <a class="dropdown-item" href="../vista/ingresarinstructor.php">Ingresar Instructor </a>
+                   </div>
+              </li>
+       
+              
+              <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Tablas consolidadas</a>
+                   <div class="dropdown-menu">
+                   <a class="dropdown-item" href="../vista/tablainstructor.php">Tabla de instructores</a>
+                   <a class="dropdown-item" href="../vista/reposteaprendices.php">Tabla de aprendices </a>
+                   </div>
+              </li>
+
   </ul>
 </nav>
 <br>
